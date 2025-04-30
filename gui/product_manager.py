@@ -2,7 +2,6 @@
 from PyQt5 import QtWidgets, QtCore
 from services.product_service import ProductService
 from gui.product_dialog import ProductDialog
-from utils.logger import logging
 import logging
 
 logger = logging.getLogger(__name__)
@@ -29,9 +28,9 @@ class ProductManagerPage(QtWidgets.QWidget):
         toolbar.addWidget(btn_delete)
         v.addLayout(toolbar)
 
-        # Таблица
-        self.table = QtWidgets.QTableWidget(0, 4)
-        self.table.setHorizontalHeaderLabels(["ID", "Название", "Ед.изм.", "Срок (дн.)"])
+        # Таблица (ID, Название, Ед.изм., Срок (дн.), Остаток)
+        self.table = QtWidgets.QTableWidget(0, 5)
+        self.table.setHorizontalHeaderLabels(["ID", "Название", "Ед.изм.", "Срок (дн.)", "Остаток"])
         self.table.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         v.addWidget(self.table, stretch=1)
 
@@ -58,13 +57,14 @@ class ProductManagerPage(QtWidgets.QWidget):
             self.table.setItem(r, 1, QtWidgets.QTableWidgetItem(p.name))
             self.table.setItem(r, 2, QtWidgets.QTableWidgetItem(p.unit))
             self.table.setItem(r, 3, QtWidgets.QTableWidgetItem(str(p.expiration_days)))
+            self.table.setItem(r, 4, QtWidgets.QTableWidgetItem(str(p.quantity)))
 
     def add_item(self):
-        dlg = ProductDialog()
+        dlg = ProductDialog(parent=self)
         if dlg.exec_() == QtWidgets.QDialog.Accepted:
-            name, unit, exp = dlg.get_data()
+            name, unit, exp_days, qty = dlg.get_data()
             try:
-                ProductService.create(name, unit, exp)
+                ProductService.create(name, unit, exp_days, quantity=qty)
                 self.reload()
                 self.data_changed.emit()
             except Exception as e:
@@ -79,11 +79,18 @@ class ProductManagerPage(QtWidgets.QWidget):
         orig_name = self.table.item(row, 1).text()
         orig_unit = self.table.item(row, 2).text()
         orig_exp = int(self.table.item(row, 3).text())
-        dlg = ProductDialog(orig_name, orig_unit, orig_exp)
+        orig_qty = int(self.table.item(row, 4).text())
+        dlg = ProductDialog(name=orig_name, unit=orig_unit, exp_days=orig_exp, qty=orig_qty, parent=self)
         if dlg.exec_() == QtWidgets.QDialog.Accepted:
-            name, unit, exp = dlg.get_data()
+            name, unit, exp_days, qty = dlg.get_data()
             try:
-                ProductService.update(prod_id, name=name, unit=unit, expiration_days=exp)
+                ProductService.update(
+                    prod_id,
+                    name=name,
+                    unit=unit,
+                    expiration_days=exp_days,
+                    quantity=qty
+                )
                 self.reload()
                 self.data_changed.emit()
             except Exception as e:

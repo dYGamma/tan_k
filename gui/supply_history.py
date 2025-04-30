@@ -39,6 +39,7 @@ class OperationPage(QtWidgets.QWidget):
         btn_edit.clicked.connect(self.edit_item)
         btn_delete.clicked.connect(self.delete_item)
 
+        # Начальная загрузка
         self.reload()
 
     def reload(self):
@@ -60,12 +61,19 @@ class OperationPage(QtWidgets.QWidget):
             self.table.setItem(r, 6, QtWidgets.QTableWidgetItem(op.date.strftime("%Y-%m-%d %H:%M:%S")))
 
     def add_item(self):
-        dlg = OperationDialog()
+        dlg = OperationDialog(parent=self)
         if dlg.exec_() == QtWidgets.QDialog.Accepted:
-            data = dlg.get_data()
+            data = dlg.get_data()  # должен вернуть dict с keys: product_id, supplier_id, warehouse, quantity, op_type
             try:
-                OperationService.create(**data)
+                OperationService.create(
+                    product_id=data['product_id'],
+                    supplier_id=data['supplier_id'],
+                    warehouse=data['warehouse'],
+                    quantity=data['quantity'],
+                    op_type=data['op_type']
+                )
                 self.reload()
+                self.reload_request.emit()
             except Exception as e:
                 logger.error("Не удалось добавить операцию: %s", e, exc_info=True)
                 QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
@@ -79,15 +87,23 @@ class OperationPage(QtWidgets.QWidget):
             'product_id': None,
             'supplier_id': None,
             'warehouse': self.table.item(row, 3).text(),
-            'quantity': float(self.table.item(row, 4).text()),
+            'quantity': int(self.table.item(row, 4).text()),
             'op_type': self.table.item(row, 5).text()
         }
-        dlg = OperationDialog(**current)
+        dlg = OperationDialog(**current, parent=self)
         if dlg.exec_() == QtWidgets.QDialog.Accepted:
             data = dlg.get_data()
             try:
-                OperationService.update(op_id, **data)
+                OperationService.update(
+                    op_id,
+                    product_id=data['product_id'],
+                    supplier_id=data['supplier_id'],
+                    warehouse=data['warehouse'],
+                    quantity=data['quantity'],
+                    op_type=data['op_type']
+                )
                 self.reload()
+                self.reload_request.emit()
             except Exception as e:
                 logger.error("Не удалось обновить операцию: %s", e, exc_info=True)
                 QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
@@ -108,6 +124,7 @@ class OperationPage(QtWidgets.QWidget):
         try:
             OperationService.delete(op_id)
             self.reload()
+            self.reload_request.emit()
         except Exception as e:
             logger.error("Не удалось удалить операцию: %s", e, exc_info=True)
             QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))

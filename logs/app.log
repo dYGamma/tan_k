@@ -560,3 +560,427 @@ FROM operations LEFT OUTER JOIN products AS products_1 ON products_1.id = operat
 2025-04-30 20:47:08 gui.dashboard_window [INFO] MainWindow initialized for user 'qwer'
 2025-04-30 20:47:15 __main__             [INFO] Application end
 2025-04-30 20:47:17 __main__             [INFO] Application start
+2025-04-30 20:54:16 __main__             [INFO] Application start
+2025-04-30 20:54:20 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 20:54:20 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 20:54:21 gui.product_manager  [ERROR] Ошибка загрузки списка товаров: (sqlite3.OperationalError) no such column: products.quantity
+[SQL: SELECT products.id AS products_id, products.name AS products_name, products.unit AS products_unit, products.expiration_days AS products_expiration_days, products.quantity AS products_quantity 
+FROM products ORDER BY products.name]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: products.quantity
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\GIT\tan_k\gui\product_manager.py", line 49, in reload
+    products = ProductService.list_all(filter_name=self.search.text())
+  File "d:\GIT\tan_k\services\product_service.py", line 19, in list_all
+    return q.order_by(Product.name).all()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\query.py", line 2704, in all
+    return self._iter().all()  # type: ignore
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\query.py", line 2858, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: products.quantity
+[SQL: SELECT products.id AS products_id, products.name AS products_name, products.unit AS products_unit, products.expiration_days AS products_expiration_days, products.quantity AS products_quantity 
+FROM products ORDER BY products.name]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-04-30 20:54:21 gui.supply_history   [ERROR] Ошибка загрузки операций: (sqlite3.OperationalError) no such column: products_1.quantity
+[SQL: SELECT operations.id AS operations_id, operations.product_id AS operations_product_id, operations.supplier_id AS operations_supplier_id, operations.warehouse AS operations_warehouse, operations.quantity AS operations_quantity, operations.type AS operations_type, operations.date AS operations_date, products_1.id AS products_1_id, products_1.name AS products_1_name, products_1.unit AS products_1_unit, products_1.expiration_days AS products_1_expiration_days, products_1.quantity AS products_1_quantity, suppliers_1.id AS suppliers_1_id, suppliers_1.name AS suppliers_1_name, suppliers_1.contact AS suppliers_1_contact 
+FROM operations LEFT OUTER JOIN products AS products_1 ON products_1.id = operations.product_id LEFT OUTER JOIN suppliers AS suppliers_1 ON suppliers_1.id = operations.supplier_id ORDER BY operations.date DESC]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: products_1.quantity
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\GIT\tan_k\gui\supply_history.py", line 46, in reload
+    ops = OperationService.list_all()
+  File "d:\GIT\tan_k\services\operation_service.py", line 18, in list_all
+    s.query(Operation)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\query.py", line 2704, in all
+    return self._iter().all()  # type: ignore
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\query.py", line 2858, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: products_1.quantity
+[SQL: SELECT operations.id AS operations_id, operations.product_id AS operations_product_id, operations.supplier_id AS operations_supplier_id, operations.warehouse AS operations_warehouse, operations.quantity AS operations_quantity, operations.type AS operations_type, operations.date AS operations_date, products_1.id AS products_1_id, products_1.name AS products_1_name, products_1.unit AS products_1_unit, products_1.expiration_days AS products_1_expiration_days, products_1.quantity AS products_1_quantity, suppliers_1.id AS suppliers_1_id, suppliers_1.name AS suppliers_1_name, suppliers_1.contact AS suppliers_1_contact 
+FROM operations LEFT OUTER JOIN products AS products_1 ON products_1.id = operations.product_id LEFT OUTER JOIN suppliers AS suppliers_1 ON suppliers_1.id = operations.supplier_id ORDER BY operations.date DESC]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-04-30 20:54:21 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 20:54:27 __main__             [INFO] Application end
+2025-04-30 20:54:40 __main__             [INFO] Application start
+2025-04-30 20:54:41 models.user          [INFO] Password set for user 'admin'
+2025-04-30 20:54:41 database             [INFO] Default admin created
+2025-04-30 20:54:44 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 20:54:44 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 20:54:44 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 20:55:02 services.product_service [INFO] Product 'adw' created with quantity=0
+2025-04-30 20:55:11 __main__             [INFO] Application end
+2025-04-30 20:55:21 __main__             [INFO] Application start
+2025-04-30 20:55:27 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 20:55:27 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 20:55:27 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 20:55:35 services.supplier_service [INFO] Supplier 'eeeee' created
+2025-04-30 20:55:52 services.operation_service [INFO] Operation in id=1 created
+2025-04-30 20:56:16 services.operation_service [INFO] Operation out id=2 created
+2025-04-30 20:56:21 __main__             [INFO] Application end
+2025-04-30 20:56:42 __main__             [INFO] Application start
+2025-04-30 20:56:47 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 20:56:47 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 20:56:47 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 20:58:10 __main__             [INFO] Application end
+2025-04-30 21:02:11 __main__             [INFO] Application start
+2025-04-30 21:02:16 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:02:16 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:02:17 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:02:28 services.product_service [WARNING] Product id=1 deleted
+2025-04-30 21:02:43 __main__             [INFO] Application start
+2025-04-30 21:02:44 models.user          [INFO] Password set for user 'admin'
+2025-04-30 21:02:44 database             [INFO] Default admin created
+2025-04-30 21:02:50 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:02:50 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:02:50 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:03:13 services.product_service [INFO] Product 'Комп' created with quantity=20
+2025-04-30 21:03:59 __main__             [INFO] Application start
+2025-04-30 21:04:05 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:04:05 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:04:05 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:04:17 services.supplier_service [INFO] Supplier 'qwer' created
+2025-04-30 21:04:36 services.product_service [INFO] Product id=1 quantity adjusted by 15, new quantity=35
+2025-04-30 21:04:36 services.operation_service [INFO] Operation in id=1 created, delta=15.0
+2025-04-30 21:04:47 __main__             [INFO] Application end
+2025-04-30 21:04:50 __main__             [INFO] Application start
+2025-04-30 21:04:52 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:04:52 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:04:52 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:05:43 __main__             [INFO] Application end
+2025-04-30 21:05:51 __main__             [INFO] Application start
+2025-04-30 21:05:58 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:05:58 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:05:58 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:06:11 gui.supply_history   [ERROR] Не удалось добавить операцию: Поле 'склад' не может быть пустым
+Traceback (most recent call last):
+  File "d:\GIT\tan_k\gui\supply_history.py", line 68, in add_item
+    OperationService.create(
+  File "d:\GIT\tan_k\services\operation_service.py", line 46, in create
+    raise ValueError("Поле 'склад' не может быть пустым")
+ValueError: Поле 'склад' не может быть пустым
+2025-04-30 21:06:30 services.product_service [INFO] Product id=1 quantity adjusted by -15, new quantity=20
+2025-04-30 21:06:30 services.operation_service [INFO] Operation out id=2 created, delta=-15.0
+2025-04-30 21:06:52 services.product_service [INFO] Product 'Комп' created with quantity=50
+2025-04-30 21:06:56 services.product_service [WARNING] Product id=2 deleted
+2025-04-30 21:07:36 __main__             [INFO] Application start
+2025-04-30 21:07:43 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:07:43 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:07:43 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:07:52 services.product_service [INFO] Product id=1 updated: {'name': 'Комп', 'unit': 'кол', 'expiration_days': 5, 'quantity': 25}
+2025-04-30 21:08:09 services.product_service [INFO] Product id=1 quantity adjusted by -5, new quantity=20
+2025-04-30 21:08:10 services.operation_service [INFO] Operation out id=3 created, delta=-5.0
+2025-04-30 21:08:24 gui.report_generator [INFO] PDF report generated: D:\GIT\tan_k\inventory_20250430_210824.pdf
+2025-04-30 21:09:37 __main__             [INFO] Application end
+2025-04-30 21:15:30 __main__             [INFO] Application start
+2025-04-30 21:15:36 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:15:36 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:15:36 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:15:47 __main__             [INFO] Application end
+2025-04-30 21:15:57 __main__             [INFO] Application start
+2025-04-30 21:15:59 models.user          [INFO] Password set for user 'admin'
+2025-04-30 21:15:59 database             [INFO] Default admin created
+2025-04-30 21:16:02 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:16:02 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:16:03 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:16:07 __main__             [INFO] Application end
+2025-04-30 21:17:18 __main__             [INFO] Application start
+2025-04-30 21:17:19 models.user          [INFO] Password set for user 'admin'
+2025-04-30 21:17:19 database             [INFO] Default admin created
+2025-04-30 21:17:25 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:17:25 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:17:25 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:17:46 __main__             [INFO] Application end
+2025-04-30 21:17:54 __main__             [INFO] Application start
+2025-04-30 21:18:00 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:18:00 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:18:00 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:18:14 __main__             [INFO] Application end
+2025-04-30 21:19:34 __main__             [INFO] Application start
+2025-04-30 21:19:39 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:19:39 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:19:39 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:20:55 __main__             [INFO] Application end
+2025-04-30 21:21:31 __main__             [INFO] Application start
+2025-04-30 21:21:36 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:21:36 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:21:36 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:21:48 __main__             [INFO] Application end
+2025-04-30 21:23:05 __main__             [INFO] Application start
+2025-04-30 21:23:11 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:23:11 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:23:11 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:23:57 services.product_service [INFO] Product 'qwe' created with quantity=222
+2025-04-30 21:24:09 services.product_service [INFO] Product 'ewrq' created with quantity=211
+2025-04-30 21:24:20 services.supplier_service [INFO] Supplier 'ee' created
+2025-04-30 21:24:26 services.warehouse_service [INFO] Warehouse 'qweqw' created
+2025-04-30 21:24:28 services.warehouse_service [INFO] Warehouse 'eqwew' created
+2025-04-30 21:24:32 services.supplier_service [INFO] Supplier 'ewqe' created
+2025-04-30 21:24:45 services.product_service [INFO] Product id=2 quantity adjusted by -11, new quantity=200
+2025-04-30 21:24:45 services.operation_service [INFO] Operation out id=1 created, delta=-11.0
+2025-04-30 21:25:29 __main__             [INFO] Application end
+2025-04-30 21:25:46 __main__             [INFO] Application start
+2025-04-30 21:25:53 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:25:53 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:26:47 __main__             [INFO] Application start
+2025-04-30 21:26:51 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:26:51 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:26:52 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:26:57 __main__             [INFO] Application end
+2025-04-30 21:27:13 __main__             [INFO] Application start
+2025-04-30 21:27:18 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:27:18 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:27:18 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:27:44 __main__             [INFO] Application end
+2025-04-30 21:28:22 __main__             [INFO] Application start
+2025-04-30 21:28:26 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:28:26 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:28:56 __main__             [INFO] Application start
+2025-04-30 21:29:00 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:29:00 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:29:00 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:29:08 __main__             [INFO] Application end
+2025-04-30 21:29:56 __main__             [INFO] Application start
+2025-04-30 21:30:00 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:30:00 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:30:00 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:30:40 __main__             [INFO] Application end
+2025-04-30 21:30:51 __main__             [INFO] Application start
+2025-04-30 21:30:56 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:30:56 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:30:57 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:31:11 __main__             [INFO] Application start
+2025-04-30 21:31:16 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:31:16 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:31:16 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:37:25 __main__             [INFO] Application end
+2025-04-30 21:37:31 __main__             [INFO] Application start
+2025-04-30 21:37:36 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:37:36 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:37:37 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:37:41 __main__             [INFO] Application end
+2025-04-30 21:37:44 __main__             [INFO] Application start
+2025-04-30 21:37:47 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:37:47 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:37:47 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:38:01 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:38:01 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:38:01 gui.dashboard_window [INFO] Re-login: now user 'admin'
+2025-04-30 21:38:01 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:38:01 __main__             [INFO] Application end
+2025-04-30 21:39:23 __main__             [INFO] Application start
+2025-04-30 21:39:26 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:39:26 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:39:26 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:40:18 __main__             [INFO] Application end
+2025-04-30 21:42:18 __main__             [INFO] Application start
+2025-04-30 21:42:23 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:42:23 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:42:23 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:44:28 __main__             [INFO] Application end
+2025-04-30 21:45:09 __main__             [INFO] Application start
+2025-04-30 21:45:14 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:45:14 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:45:15 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:46:32 __main__             [INFO] Application end
+2025-04-30 21:46:38 __main__             [INFO] Application start
+2025-04-30 21:46:42 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:46:42 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:46:42 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:46:51 __main__             [INFO] Application end
+2025-04-30 21:47:22 __main__             [INFO] Application start
+2025-04-30 21:47:27 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:47:27 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:47:27 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:47:37 __main__             [INFO] Application end
+2025-04-30 21:48:06 __main__             [INFO] Application start
+2025-04-30 21:48:12 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:48:12 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:48:12 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:49:29 __main__             [INFO] Application end
+2025-04-30 21:49:43 __main__             [INFO] Application start
+2025-04-30 21:50:11 __main__             [INFO] Application start
+2025-04-30 21:50:18 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:50:18 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:50:19 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:50:44 __main__             [INFO] Application end
+2025-04-30 21:52:18 __main__             [INFO] Application start
+2025-04-30 21:52:46 __main__             [INFO] Application start
+2025-04-30 21:52:53 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:52:53 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:52:54 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:54:09 __main__             [INFO] Application end
+2025-04-30 21:54:46 __main__             [INFO] Application start
+2025-04-30 21:54:51 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:54:51 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:54:51 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:55:20 __main__             [INFO] Application end
+2025-04-30 21:55:26 __main__             [INFO] Application start
+2025-04-30 21:55:32 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:55:32 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:55:33 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 21:55:43 __main__             [INFO] Application end
+2025-04-30 21:58:47 __main__             [INFO] Application start
+2025-04-30 21:58:47 qdarkstyle           [DEBUG] Reading QSS file in: :qdarkstyle\dark\darkstyle.qss
+2025-04-30 21:58:47 qdarkstyle           [INFO] QSS file successfully loaded.
+2025-04-30 21:58:47 qdarkstyle           [DEBUG] Checking patches for being applied.
+2025-04-30 21:58:47 qdarkstyle           [INFO] Found version patches to be applied.
+2025-04-30 21:58:47 qdarkstyle           [INFO] Found application patches to be applied.
+2025-04-30 21:58:53 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 21:58:53 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 21:58:53 qdarkstyle           [DEBUG] Reading QSS file in: :qdarkstyle\dark\darkstyle.qss
+2025-04-30 21:58:53 qdarkstyle           [INFO] QSS file successfully loaded.
+2025-04-30 21:58:53 qdarkstyle           [DEBUG] Checking patches for being applied.
+2025-04-30 21:58:53 qdarkstyle           [INFO] Found version patches to be applied.
+2025-04-30 21:58:53 qdarkstyle           [INFO] Found application patches to be applied.
+2025-04-30 22:02:54 __main__             [INFO] Application start
+2025-04-30 22:03:01 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 22:03:01 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 22:03:01 qdarkstyle           [DEBUG] Reading QSS file in: :qdarkstyle\dark\darkstyle.qss
+2025-04-30 22:03:01 qdarkstyle           [INFO] QSS file successfully loaded.
+2025-04-30 22:03:01 qdarkstyle           [DEBUG] Checking patches for being applied.
+2025-04-30 22:03:01 qdarkstyle           [INFO] Found version patches to be applied.
+2025-04-30 22:03:01 qdarkstyle           [INFO] Found application patches to be applied.
+2025-04-30 22:03:01 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 22:03:14 qdarkstyle           [DEBUG] Reading QSS file in: :qdarkstyle\dark\darkstyle.qss
+2025-04-30 22:03:14 qdarkstyle           [INFO] QSS file successfully loaded.
+2025-04-30 22:03:14 qdarkstyle           [DEBUG] Checking patches for being applied.
+2025-04-30 22:03:14 qdarkstyle           [INFO] Found version patches to be applied.
+2025-04-30 22:03:14 qdarkstyle           [INFO] Found application patches to be applied.
+2025-04-30 22:03:19 qdarkstyle           [DEBUG] Reading QSS file in: :qdarkstyle\dark\darkstyle.qss
+2025-04-30 22:03:19 qdarkstyle           [INFO] QSS file successfully loaded.
+2025-04-30 22:03:19 qdarkstyle           [DEBUG] Checking patches for being applied.
+2025-04-30 22:03:19 qdarkstyle           [INFO] Found version patches to be applied.
+2025-04-30 22:03:19 qdarkstyle           [INFO] Found application patches to be applied.
+2025-04-30 22:03:24 __main__             [INFO] Application end
+2025-04-30 22:03:57 __main__             [INFO] Application start
+2025-04-30 22:04:03 __main__             [INFO] Application start
+2025-04-30 22:05:43 __main__             [INFO] Application start
+2025-04-30 22:06:27 __main__             [INFO] Application start
+2025-04-30 22:07:15 __main__             [INFO] Application start
+2025-04-30 22:07:21 __main__             [INFO] Application start
+2025-04-30 22:07:38 __main__             [INFO] Application start
+2025-04-30 22:08:49 __main__             [INFO] Application start
+2025-04-30 22:09:34 __main__             [INFO] Application start
+2025-04-30 22:09:36 models.user          [INFO] Password set for user 'admin'
+2025-04-30 22:09:36 database             [INFO] Default admin created
+2025-04-30 22:10:26 __main__             [INFO] Application start
+2025-04-30 22:11:50 __main__             [INFO] Application start
+2025-04-30 22:11:55 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 22:11:55 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 22:11:55 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 22:12:14 __main__             [INFO] Application end
+2025-04-30 22:12:42 __main__             [INFO] Application start
+2025-04-30 22:12:46 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 22:12:46 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 22:12:47 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 22:12:53 __main__             [INFO] Application end
+2025-04-30 22:13:15 __main__             [INFO] Application start
+2025-04-30 22:13:19 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 22:13:19 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 22:13:19 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 22:13:25 __main__             [INFO] Application end
+2025-04-30 22:13:30 __main__             [INFO] Application start
+2025-04-30 22:13:33 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 22:13:33 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 22:13:34 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 22:13:36 __main__             [INFO] Application end
+2025-04-30 22:13:42 __main__             [INFO] Application start
+2025-04-30 22:13:48 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 22:13:48 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 22:13:48 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 22:13:53 __main__             [INFO] Application end
+2025-04-30 22:14:00 __main__             [INFO] Application start
+2025-04-30 22:14:04 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 22:14:04 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 22:14:04 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 22:14:11 __main__             [INFO] Application end
+2025-04-30 22:15:05 __main__             [INFO] Application start
+2025-04-30 22:15:09 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 22:15:09 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 22:15:09 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 22:15:16 __main__             [INFO] Application end
+2025-04-30 22:15:30 __main__             [INFO] Application start
+2025-04-30 22:15:34 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 22:15:34 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 22:15:35 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 22:15:37 __main__             [INFO] Application end
+2025-04-30 22:15:51 __main__             [INFO] Application start
+2025-04-30 22:15:55 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 22:15:55 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 22:15:56 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 22:15:58 __main__             [INFO] Application end
+2025-04-30 22:16:28 __main__             [INFO] Application start
+2025-04-30 22:16:31 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 22:16:31 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 22:16:32 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 22:16:34 __main__             [INFO] Application end
+2025-04-30 22:16:45 __main__             [INFO] Application start
+2025-04-30 22:16:49 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 22:16:49 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 22:16:49 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 22:16:51 __main__             [INFO] Application end
+2025-04-30 22:17:55 __main__             [INFO] Application start
+2025-04-30 22:17:59 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 22:17:59 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 22:17:59 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 22:18:46 __main__             [INFO] Application end
