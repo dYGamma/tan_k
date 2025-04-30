@@ -6,8 +6,9 @@ from PyQt5.QtCore import QSettings
 from database import initialize_db, engine
 from utils.config_loader import get_config_path, load_config
 from utils.logger import setup_logging
-from utils.session_manager import session_scope
+from services.session_manager import session_scope
 from gui.login_window import LoginWindow
+
 from gui.dashboard_window import MainWindow
 from utils.theme_manager import init_theme, apply_input_styles
 

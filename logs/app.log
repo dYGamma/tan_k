@@ -127,3 +127,436 @@ sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint fail
 2025-04-30 19:31:11 gui.login_window     [INFO] User 'admin' logged in via GUI
 2025-04-30 19:31:11 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
 2025-04-30 19:31:33 __main__             [INFO] Application end
+2025-04-30 19:41:36 __main__             [INFO] Application start
+2025-04-30 19:41:37 models.user          [INFO] Password set for user 'admin'
+2025-04-30 19:41:37 database             [INFO] Default admin created
+2025-04-30 19:41:45 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 19:41:45 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 19:41:45 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 19:42:03 services.product_service [INFO] Product 'qwe' created
+2025-04-30 19:42:13 gui.supply_history   [ERROR] Не удалось добавить операцию: (sqlite3.IntegrityError) NOT NULL constraint failed: operations.supplier_id
+[SQL: INSERT INTO operations (product_id, supplier_id, warehouse, quantity, type, date) VALUES (?, ?, ?, ?, ?, ?)]
+[parameters: (1, None, 'we', 1.0, 'in', '2025-04-30 16:42:13.516136')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: operations.supplier_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\GIT\tan_k\gui\supply_history.py", line 67, in add_item
+    OperationService.create(**data)
+  File "d:\GIT\tan_k\services\operation_service.py", line 34, in create
+    return op
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 124, in __exit__
+    next(self.gen)
+  File "d:\GIT\tan_k\services\session_manager.py", line 16, in session_scope
+    session.commit()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4353, in flush
+    self._flush(objects)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4489, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4449, in _flush
+    flush_context.execute()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: operations.supplier_id
+[SQL: INSERT INTO operations (product_id, supplier_id, warehouse, quantity, type, date) VALUES (?, ?, ?, ?, ?, ?)]
+[parameters: (1, None, 'we', 1.0, 'in', '2025-04-30 16:42:13.516136')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-30 19:42:24 __main__             [INFO] Application end
+2025-04-30 19:43:01 __main__             [INFO] Application start
+2025-04-30 19:43:08 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 19:43:08 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 19:43:09 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 19:43:42 gui.report_generator [INFO] PDF report generated: D:\GIT\tan_k\inventory_20250430_194342.pdf
+2025-04-30 19:43:56 gui.report_generator [INFO] Excel report generated: inventory_20250430_194356.xlsx
+2025-04-30 19:45:09 __main__             [INFO] Application end
+2025-04-30 19:46:01 __main__             [INFO] Application start
+2025-04-30 19:46:40 __main__             [INFO] Application start
+2025-04-30 19:47:06 __main__             [INFO] Application start
+2025-04-30 19:47:11 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 19:47:11 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 19:47:11 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 19:48:24 __main__             [INFO] Application end
+2025-04-30 19:48:39 __main__             [INFO] Application start
+2025-04-30 19:50:05 __main__             [INFO] Application start
+2025-04-30 19:50:11 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 19:50:11 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 19:50:11 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 19:53:11 __main__             [INFO] Application end
+2025-04-30 19:53:24 __main__             [INFO] Application start
+2025-04-30 19:53:28 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 19:53:28 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 19:53:29 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 20:03:48 gui.report_generator [INFO] PDF report generated: D:\GIT\tan_k\inventory_20250430_200348.pdf
+2025-04-30 20:03:57 __main__             [INFO] Application end
+2025-04-30 20:04:24 __main__             [INFO] Application start
+2025-04-30 20:04:29 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 20:04:29 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 20:04:29 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 20:06:13 gui.supply_history   [ERROR] Не удалось добавить операцию: Invalid operation data
+Traceback (most recent call last):
+  File "d:\GIT\tan_k\gui\supply_history.py", line 67, in add_item
+    OperationService.create(**data)
+  File "d:\GIT\tan_k\services\operation_service.py", line 22, in create
+    raise ValueError("Invalid operation data")
+ValueError: Invalid operation data
+2025-04-30 20:06:23 gui.supply_history   [ERROR] Не удалось добавить операцию: (sqlite3.IntegrityError) NOT NULL constraint failed: operations.supplier_id
+[SQL: INSERT INTO operations (product_id, supplier_id, warehouse, quantity, type, date) VALUES (?, ?, ?, ?, ?, ?)]
+[parameters: (1, None, 'йцук', 1.0, 'in', '2025-04-30 17:06:23.549763')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: operations.supplier_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\GIT\tan_k\gui\supply_history.py", line 67, in add_item
+    OperationService.create(**data)
+  File "d:\GIT\tan_k\services\operation_service.py", line 34, in create
+    return op
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 124, in __exit__
+    next(self.gen)
+  File "d:\GIT\tan_k\services\session_manager.py", line 16, in session_scope
+    session.commit()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4353, in flush
+    self._flush(objects)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4489, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4449, in _flush
+    flush_context.execute()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: operations.supplier_id
+[SQL: INSERT INTO operations (product_id, supplier_id, warehouse, quantity, type, date) VALUES (?, ?, ?, ?, ?, ?)]
+[parameters: (1, None, 'йцук', 1.0, 'in', '2025-04-30 17:06:23.549763')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-30 20:07:58 __main__             [INFO] Application end
+2025-04-30 20:08:30 __main__             [INFO] Application start
+2025-04-30 20:08:35 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 20:08:35 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 20:08:35 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 20:09:25 gui.supply_history   [ERROR] Не удалось добавить операцию: (sqlite3.IntegrityError) NOT NULL constraint failed: operations.supplier_id
+[SQL: INSERT INTO operations (product_id, supplier_id, warehouse, quantity, type, date) VALUES (?, ?, ?, ?, ?, ?)]
+[parameters: (1, None, 'qwer', 1.0, 'in', '2025-04-30 17:09:25.624169')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: operations.supplier_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\GIT\tan_k\gui\supply_history.py", line 67, in add_item
+    OperationService.create(**data)
+  File "d:\GIT\tan_k\services\operation_service.py", line 34, in create
+    return op
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 124, in __exit__
+    next(self.gen)
+  File "d:\GIT\tan_k\services\session_manager.py", line 16, in session_scope
+    session.commit()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4353, in flush
+    self._flush(objects)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4489, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4449, in _flush
+    flush_context.execute()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: operations.supplier_id
+[SQL: INSERT INTO operations (product_id, supplier_id, warehouse, quantity, type, date) VALUES (?, ?, ?, ?, ?, ?)]
+[parameters: (1, None, 'qwer', 1.0, 'in', '2025-04-30 17:09:25.624169')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-30 20:16:09 __main__             [INFO] Application end
+2025-04-30 20:17:01 __main__             [INFO] Application start
+2025-04-30 20:17:06 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 20:17:06 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 20:17:06 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 20:20:40 __main__             [INFO] Application start
+2025-04-30 20:20:44 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 20:20:44 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 20:20:45 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 20:20:59 __main__             [INFO] Application end
+2025-04-30 20:21:01 __main__             [INFO] Application start
+2025-04-30 20:21:06 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 20:21:06 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 20:21:06 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 20:21:31 services.supplier_service [INFO] Supplier 'OOO Sur' created
+2025-04-30 20:21:50 gui.supply_history   [ERROR] Не удалось добавить операцию: Parent instance <Operation at 0x1cb4aea2250> is not bound to a Session; lazy load operation of attribute 'product' cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+Traceback (most recent call last):
+  File "d:\GIT\tan_k\gui\supply_history.py", line 68, in add_item
+    self.reload()
+  File "d:\GIT\tan_k\gui\supply_history.py", line 55, in reload
+    self.table.setItem(r, 1, QtWidgets.QTableWidgetItem(op.product.name))
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\attributes.py", line 566, in __get__
+    return self.impl.get(state, dict_)  # type: ignore[no-any-return]
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\attributes.py", line 1086, in get
+    value = self._fire_loader_callables(state, key, passive)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\attributes.py", line 1121, in _fire_loader_callables
+    return self.callable_(state, passive)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\strategies.py", line 922, in _load_for_state
+    raise orm_exc.DetachedInstanceError(
+sqlalchemy.orm.exc.DetachedInstanceError: Parent instance <Operation at 0x1cb4aea2250> is not bound to a Session; lazy load operation of attribute 'product' cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+2025-04-30 20:22:38 __main__             [INFO] Application end
+2025-04-30 20:23:54 __main__             [INFO] Application start
+2025-04-30 20:23:59 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 20:23:59 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 20:25:33 __main__             [INFO] Application start
+2025-04-30 20:25:37 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 20:25:37 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 20:25:37 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 20:25:45 services.operation_service [WARNING] Operation id=1 deleted
+2025-04-30 20:25:56 services.operation_service [INFO] Operation in id=1 created
+2025-04-30 20:26:03 gui.report_generator [INFO] PDF report generated: D:\GIT\tan_k\inventory_20250430_202603.pdf
+2025-04-30 20:26:05 gui.report_generator [INFO] Excel report generated: inventory_20250430_202605.xlsx
+2025-04-30 20:31:10 __main__             [INFO] Application end
+2025-04-30 20:39:43 __main__             [INFO] Application start
+2025-04-30 20:39:48 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 20:39:48 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 20:39:48 gui.product_manager  [ERROR] Ошибка загрузки списка товаров: (sqlite3.OperationalError) no such column: products.stock
+[SQL: SELECT products.id AS products_id, products.name AS products_name, products.unit AS products_unit, products.expiration_days AS products_expiration_days, products.stock AS products_stock 
+FROM products ORDER BY products.name]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: products.stock
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\GIT\tan_k\gui\product_manager.py", line 49, in reload
+    products = ProductService.list_all(filter_name=self.search.text())
+  File "d:\GIT\tan_k\services\product_service.py", line 15, in list_all
+    return q.order_by(Product.name).all()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\query.py", line 2704, in all
+    return self._iter().all()  # type: ignore
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\query.py", line 2858, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: products.stock
+[SQL: SELECT products.id AS products_id, products.name AS products_name, products.unit AS products_unit, products.expiration_days AS products_expiration_days, products.stock AS products_stock 
+FROM products ORDER BY products.name]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-04-30 20:39:48 gui.supply_history   [ERROR] Ошибка загрузки операций: (sqlite3.OperationalError) no such column: products_1.stock
+[SQL: SELECT operations.id AS operations_id, operations.product_id AS operations_product_id, operations.supplier_id AS operations_supplier_id, operations.warehouse AS operations_warehouse, operations.quantity AS operations_quantity, operations.type AS operations_type, operations.date AS operations_date, products_1.id AS products_1_id, products_1.name AS products_1_name, products_1.unit AS products_1_unit, products_1.expiration_days AS products_1_expiration_days, products_1.stock AS products_1_stock, suppliers_1.id AS suppliers_1_id, suppliers_1.name AS suppliers_1_name, suppliers_1.contact AS suppliers_1_contact 
+FROM operations LEFT OUTER JOIN products AS products_1 ON products_1.id = operations.product_id LEFT OUTER JOIN suppliers AS suppliers_1 ON suppliers_1.id = operations.supplier_id ORDER BY operations.date DESC]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: products_1.stock
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\GIT\tan_k\gui\supply_history.py", line 46, in reload
+    ops = OperationService.list_all()
+  File "d:\GIT\tan_k\services\operation_service.py", line 18, in list_all
+    s.query(Operation)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\query.py", line 2704, in all
+    return self._iter().all()  # type: ignore
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\query.py", line 2858, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: products_1.stock
+[SQL: SELECT operations.id AS operations_id, operations.product_id AS operations_product_id, operations.supplier_id AS operations_supplier_id, operations.warehouse AS operations_warehouse, operations.quantity AS operations_quantity, operations.type AS operations_type, operations.date AS operations_date, products_1.id AS products_1_id, products_1.name AS products_1_name, products_1.unit AS products_1_unit, products_1.expiration_days AS products_1_expiration_days, products_1.stock AS products_1_stock, suppliers_1.id AS suppliers_1_id, suppliers_1.name AS suppliers_1_name, suppliers_1.contact AS suppliers_1_contact 
+FROM operations LEFT OUTER JOIN products AS products_1 ON products_1.id = operations.product_id LEFT OUTER JOIN suppliers AS suppliers_1 ON suppliers_1.id = operations.supplier_id ORDER BY operations.date DESC]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-04-30 20:39:48 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 20:39:56 __main__             [INFO] Application end
+2025-04-30 20:40:09 __main__             [INFO] Application start
+2025-04-30 20:40:14 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 20:40:14 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 20:40:14 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 20:40:32 __main__             [INFO] Application end
+2025-04-30 20:43:58 __main__             [INFO] Application start
+2025-04-30 20:44:03 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 20:44:03 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 20:44:04 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 20:44:15 __main__             [INFO] Application end
+2025-04-30 20:44:32 __main__             [INFO] Application start
+2025-04-30 20:44:37 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 20:44:37 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 20:44:38 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 20:46:45 models.user          [INFO] Password set for user 'qwer'
+2025-04-30 20:46:45 services.user_service [INFO] User 'qwer' created
+2025-04-30 20:46:46 gui.registration_dialog [INFO] New user 'qwer' registered via GUI
+2025-04-30 20:46:46 gui.role_manager     [INFO] User 'qwer' created via GUI
+2025-04-30 20:46:54 services.user_service [INFO] User 'qwer' authenticated
+2025-04-30 20:46:54 gui.login_window     [INFO] User 'qwer' logged in via GUI
+2025-04-30 20:46:54 gui.dashboard_window [INFO] Switching account: now user 'qwer'
+2025-04-30 20:46:54 gui.dashboard_window [INFO] MainWindow initialized for user 'qwer'
+2025-04-30 20:46:54 __main__             [INFO] Application end
+2025-04-30 20:47:03 __main__             [INFO] Application start
+2025-04-30 20:47:07 services.user_service [INFO] User 'qwer' authenticated
+2025-04-30 20:47:07 gui.login_window     [INFO] User 'qwer' logged in via GUI
+2025-04-30 20:47:08 gui.dashboard_window [INFO] MainWindow initialized for user 'qwer'
+2025-04-30 20:47:15 __main__             [INFO] Application end
+2025-04-30 20:47:17 __main__             [INFO] Application start

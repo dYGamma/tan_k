@@ -5,6 +5,7 @@ from gui.product_manager import ProductManagerPage
 from gui.supply_history import OperationPage
 from gui.report_generator import ReportPage
 from gui.role_manager import RoleManagerPage
+from gui.supplier_manager import SupplierManagerPage  # <<< Новый импорт
 import logging
 
 logger = logging.getLogger(__name__)
@@ -23,6 +24,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.nav_list.setFixedWidth(180)
         self.nav_list.addItem("📦 Товары")
         self.nav_list.addItem("🔄 Операции")
+        self.nav_list.addItem("🚚 Поставщики")  # <<< Новая вкладка
         self.nav_list.addItem("📊 Отчёты")
         if user.role == "admin":
             self.nav_list.addItem("👥 Пользователи")
@@ -32,9 +34,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.stack = QtWidgets.QStackedWidget()
         self.product_page = ProductManagerPage()
         self.operation_page = OperationPage()
+        self.supplier_page = SupplierManagerPage()  # <<< Новая страница
         self.report_page = ReportPage()
         self.stack.addWidget(self.product_page)
         self.stack.addWidget(self.operation_page)
+        self.stack.addWidget(self.supplier_page)  # <<< Добавлена
         self.stack.addWidget(self.report_page)
         if user.role == "admin":
             self.user_page = RoleManagerPage()

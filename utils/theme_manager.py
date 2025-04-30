@@ -38,22 +38,34 @@ def init_theme(theme_name: str):
 
 def apply_input_styles():
     """Дополнительные QSS-правила для полей ввода."""
-    from PyQt5.QtWidgets import QApplication
     app = QApplication.instance()
     p = theme_params[current_theme]
     qss = f"""
+        /* Обычные текстовые поля и комбо-боксы */
         QLineEdit, QDateEdit, QTimeEdit, QComboBox {{
             color: {p['input_text_color']};
         }}
         QLineEdit:focus, QDateEdit:focus, QTimeEdit:focus, QComboBox:focus {{
             color: {p['input_focus_color']};
         }}
-        QLineEdit::placeholder {{ color: #888888; }}
+        QLineEdit::placeholder {{
+            color: #888888;
+        }}
         QComboBox QAbstractItemView {{
             color: {p['text_color']};
             background-color: transparent;
             selection-background-color: {p['input_focus_color']};
             selection-color: #ffffff;
+        }}
+
+        /* Поля SpinBox (для "Срок(дн)" и "Количество") */
+        QSpinBox, QDoubleSpinBox {{
+            color: {p['input_text_color']};
+        }}
+        QSpinBox:focus, QDoubleSpinBox:focus {{
+            color: {p['input_focus_color']};
+            border: 1px solid {p['input_focus_color']};
+            border-radius: 4px;
         }}
     """
     app.setStyleSheet(app.styleSheet() + qss)
