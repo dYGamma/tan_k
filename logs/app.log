@@ -1,0 +1,129 @@
+2025-04-30 18:04:19,027 [INFO] Password set for user 'admin'
+2025-04-30 18:04:19,121 [INFO] Default admin created
+2025-04-30 18:04:23,822 [INFO] User 'admin' authenticated
+2025-04-30 18:05:42,595 [INFO] User 'admin' authenticated
+2025-04-30 18:06:22,631 [INFO] Product 'Комп' created
+2025-04-30 18:06:57,871 [INFO] User 'admin' authenticated
+2025-04-30 18:11:30,976 [INFO] User 'admin' authenticated
+2025-04-30 18:16:16,787 [INFO] User 'admin' authenticated
+2025-04-30 18:20:47,405 [INFO] User 'admin' authenticated
+2025-04-30 18:21:29,209 [INFO] User 'admin' authenticated
+2025-04-30 18:23:14,668 [INFO] User 'admin' authenticated
+2025-04-30 18:28:21,321 [INFO] User 'admin' authenticated
+2025-04-30 18:40:38,319 [INFO] User 'admin' authenticated
+2025-04-30 18:41:02,472 [INFO] Product 'Квартира' created
+2025-04-30 18:41:02,472 [INFO] Product 'Квартира' added
+2025-04-30 18:41:18,511 [WARNING] Product id=1 deleted
+2025-04-30 18:41:18,511 [WARNING] Product id=1 deleted
+2025-04-30 18:41:39,339 [ERROR] Error adding operation: (sqlite3.IntegrityError) NOT NULL constraint failed: operations.supplier_id
+[SQL: INSERT INTO operations (product_id, supplier_id, warehouse, quantity, type, date) VALUES (?, ?, ?, ?, ?, ?)]
+[parameters: (2, None, 'йцу', 2.0, 'in', '2025-04-30 15:41:39.338704')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-30 18:48:57,786 [INFO] User 'admin' authenticated
+2025-04-30 19:00:52,066 [INFO] User 'admin' authenticated
+2025-04-30 19:00:52,066 [INFO] User 'admin' logged in
+2025-04-30 19:01:34 - utils.logger - INFO - User 'admin' authenticated
+2025-04-30 19:01:34 - utils.logger - INFO - User 'admin' logged in
+2025-04-30 19:01:34 - utils.logger - DEBUG - Loaded 1 products (filter='')
+2025-04-30 19:01:34 - utils.logger - DEBUG - Loaded 1 users
+2025-04-30 19:22:20 __main__             [INFO] Application start
+2025-04-30 19:22:29 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 19:22:29 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 19:23:39 __main__             [INFO] Application start
+2025-04-30 19:23:43 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 19:23:43 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 19:23:44 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 19:24:04 gui.supply_history   [ERROR] Не удалось добавить операцию: (sqlite3.IntegrityError) NOT NULL constraint failed: operations.supplier_id
+[SQL: INSERT INTO operations (product_id, supplier_id, warehouse, quantity, type, date) VALUES (?, ?, ?, ?, ?, ?)]
+[parameters: (2, None, 'wqd', 0.0, 'in', '2025-04-30 16:24:04.867356')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: operations.supplier_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\GIT\VuzUC\WORK\uchet\gui\supply_history.py", line 67, in add_item
+    OperationService.create(**data)
+  File "d:\GIT\VuzUC\WORK\uchet\services\operation_service.py", line 34, in create
+    return op
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 124, in __exit__
+    next(self.gen)
+  File "d:\GIT\VuzUC\WORK\uchet\services\session_manager.py", line 16, in session_scope
+    session.commit()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4353, in flush
+    self._flush(objects)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4489, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4449, in _flush
+    flush_context.execute()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: operations.supplier_id
+[SQL: INSERT INTO operations (product_id, supplier_id, warehouse, quantity, type, date) VALUES (?, ?, ?, ?, ?, ?)]
+[parameters: (2, None, 'wqd', 0.0, 'in', '2025-04-30 16:24:04.867356')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-30 19:24:10 __main__             [INFO] Application end
+2025-04-30 19:28:53 __main__             [INFO] Application start
+2025-04-30 19:29:02 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 19:29:02 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 19:29:02 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 19:29:21 models.user          [INFO] Password set for user 'qwer'
+2025-04-30 19:29:21 services.user_service [INFO] User 'qwer' created
+2025-04-30 19:29:23 gui.registration_dialog [INFO] New user 'qwer' registered via GUI
+2025-04-30 19:29:23 gui.role_manager     [INFO] User 'qwer' created via GUI
+2025-04-30 19:29:31 services.user_service [INFO] User 'qwer' authenticated
+2025-04-30 19:29:31 gui.login_window     [INFO] User 'qwer' logged in via GUI
+2025-04-30 19:29:31 gui.dashboard_window [INFO] Switching account: now user 'qwer'
+2025-04-30 19:29:31 gui.dashboard_window [INFO] MainWindow initialized for user 'qwer'
+2025-04-30 19:29:31 __main__             [INFO] Application end
+2025-04-30 19:29:37 __main__             [INFO] Application start
+2025-04-30 19:29:42 services.user_service [INFO] User 'qwer' authenticated
+2025-04-30 19:29:42 gui.login_window     [INFO] User 'qwer' logged in via GUI
+2025-04-30 19:29:42 gui.dashboard_window [INFO] MainWindow initialized for user 'qwer'
+2025-04-30 19:30:01 __main__             [INFO] Application end
+2025-04-30 19:31:03 __main__             [INFO] Application start
+2025-04-30 19:31:11 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 19:31:11 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 19:31:11 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 19:31:33 __main__             [INFO] Application end
