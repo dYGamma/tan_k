@@ -5,64 +5,68 @@ class ProductDialog(QtWidgets.QDialog):
     def __init__(
         self,
         name: str = "",
-        unit: str = "",
-        exp_days: int = 0,
+        device_class: str = "",
+        category: str = "",
+        manufacturer: str = "",
+        serial_number: str = "",
+        registration_number: str = "",
         qty: int = 0,
+        price: float = 0.0,
         parent=None
     ):
-        """
-        Диалог создания/редактирования товара.
-
-        Аргументы:
-            name     — текущее название (или "" для нового)
-            unit     — текущая единица измерения
-            exp_days — текущий срок годности (дней)
-            qty      — текущий остаток
-            parent   — родительский виджет
-        """
         super().__init__(parent)
-        self.setWindowTitle("Данные товара")
-        self.setFixedSize(360, 220)
+        self.setWindowTitle("Данные изделия")
+        self.setFixedSize(400, 350)
 
         form = QtWidgets.QFormLayout(self)
         form.setContentsMargins(12, 12, 12, 12)
         form.setSpacing(8)
 
-        # Поля ввода
         self.edit_name = QtWidgets.QLineEdit(name)
-        self.edit_unit = QtWidgets.QLineEdit(unit)
-
-        self.spin_exp = QtWidgets.QSpinBox()
-        self.spin_exp.setRange(0, 3650)
-        self.spin_exp.setValue(exp_days)
+        self.edit_class = QtWidgets.QLineEdit(device_class)
+        self.edit_cat   = QtWidgets.QLineEdit(category)
+        self.edit_man   = QtWidgets.QLineEdit(manufacturer)
+        self.edit_ser   = QtWidgets.QLineEdit(serial_number)
+        self.edit_reg   = QtWidgets.QLineEdit(registration_number)
 
         self.spin_qty = QtWidgets.QSpinBox()
         self.spin_qty.setRange(0, 10**9)
         self.spin_qty.setValue(qty)
 
-        # Собираем форму
-        form.addRow("Название:", self.edit_name)
-        form.addRow("Ед. изм.:", self.edit_unit)
-        form.addRow("Срок годности (дн.):", self.spin_exp)
-        form.addRow("Остаток:", self.spin_qty)
+        self.spin_price = QtWidgets.QDoubleSpinBox()
+        self.spin_price.setRange(0, 1e9)
+        self.spin_price.setDecimals(2)
+        self.spin_price.setValue(price)
 
-        # Кнопки ОК/Отмена
+        form.addRow("Название:", self.edit_name)
+        form.addRow("Класс изделия:", self.edit_class)
+        form.addRow("Категория:", self.edit_cat)
+        form.addRow("Производитель:", self.edit_man)
+        form.addRow("Серийный №:", self.edit_ser)
+        form.addRow("Рег. №:", self.edit_reg)
+        form.addRow("Количество:", self.spin_qty)
+        form.addRow("Цена (₽):", self.spin_price)
+
         btns = QtWidgets.QDialogButtonBox(
             QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel,
             parent=self
         )
+
+        btns.button(QtWidgets.QDialogButtonBox.Ok).setText("ОК")
+        btns.button(QtWidgets.QDialogButtonBox.Cancel).setText("Отмена")
+
         btns.accepted.connect(self.accept)
         btns.rejected.connect(self.reject)
         form.addRow(btns)
 
-    def get_data(self) -> tuple:
-        """
-        Возвращает кортеж:
-            (name: str, unit: str, expiration_days: int, quantity: int)
-        """
-        return (
-            self.edit_name.text().strip(),
-            self.edit_unit.text().strip(),
-            self.spin_exp.value(),
-            self.spin_qty.value(),
-        )
+    def get_data(self) -> dict:
+        return {
+            "name":               self.edit_name.text().strip(),
+            "device_class":       self.edit_class.text().strip(),
+            "category":           self.edit_cat.text().strip(),
+            "manufacturer":       self.edit_man.text().strip(),
+            "serial_number":      self.edit_ser.text().strip(),
+            "registration_number":self.edit_reg.text().strip(),
+            "quantity":           self.spin_qty.value(),
+            "price":              self.spin_price.value(),
+        }

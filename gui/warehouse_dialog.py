@@ -21,6 +21,8 @@ class WarehouseDialog(QtWidgets.QDialog):
             QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel,
             parent=self
         )
+        btns.button(QtWidgets.QDialogButtonBox.Ok).setText("ОК")
+        btns.button(QtWidgets.QDialogButtonBox.Cancel).setText("Отмена")
         btns.accepted.connect(self.accept)
         btns.rejected.connect(self.reject)
         form.addRow(btns)

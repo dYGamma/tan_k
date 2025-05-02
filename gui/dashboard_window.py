@@ -1,5 +1,4 @@
 # gui/dashboard_window.py
-
 from PyQt5 import QtWidgets, QtCore, QtGui
 from utils.theme_manager import toggle_theme, update_theme_ui, init_theme
 from gui.product_manager import ProductManagerPage
@@ -13,31 +12,33 @@ import logging
 logger = logging.getLogger(__name__)
 
 class MainWindow(QtWidgets.QMainWindow):
+    NAV_WIDTH = 150  # ширина панели навигации в пикселях
+
     def __init__(self, user, make_login_dialog):
         super().__init__()
         self.user = user
         self.make_login_dialog = make_login_dialog
 
-        # Инициализируем тему (например, dark_teal по умолчанию)
         init_theme('dark_teal')
 
-        # Настраиваем окно
         self.setWindowTitle(f"Inventory System — {user.role}")
-        self.resize(1024, 768)
+        self.resize(1524, 768)
 
-        # --- Навигационная панель слева ---
+        # Навигационная панель
         self.nav_list = QtWidgets.QListWidget()
-        self.nav_list.setFixedWidth(180)
-        self.nav_list.addItem("📦 Товары")
-        self.nav_list.addItem("🔄 Операции")
-        self.nav_list.addItem("📊 Отчёты")
-        self.nav_list.addItem("🏬 Склады")
-        self.nav_list.addItem("🚚 Поставщики")
+        self.nav_list.setFixedWidth(self.NAV_WIDTH)
+        self.nav_list.addItems([
+            "📦 Товары",
+            "🔄 Операции",
+            "📊 Отчёты",
+            "🏬 Склады",
+            "🚚 Поставщики"
+        ])
         if user.role == "admin":
             self.nav_list.addItem("👥 Пользователи")
         self.nav_list.currentRowChanged.connect(self.on_nav_changed)
 
-        # --- Стек страниц справа ---
+        # Страницы
         self.product_page   = ProductManagerPage()
         self.operation_page = OperationPage()
         self.report_page    = ReportPage()
@@ -45,92 +46,111 @@ class MainWindow(QtWidgets.QMainWindow):
         self.supplier_page  = SupplierManagerPage()
 
         self.stack = QtWidgets.QStackedWidget()
-        self.stack.addWidget(self.product_page)
-        self.stack.addWidget(self.operation_page)
-        self.stack.addWidget(self.report_page)
-        self.stack.addWidget(self.warehouse_page)
-        self.stack.addWidget(self.supplier_page)
+        for w in (self.product_page, self.operation_page, self.report_page,
+                  self.warehouse_page, self.supplier_page):
+            self.stack.addWidget(w)
         if user.role == "admin":
             self.user_page = RoleManagerPage()
             self.stack.addWidget(self.user_page)
 
-        # Сигналы перезагрузки/обновления между страницами
+        # Сигналы
         self.product_page.data_changed.connect(self.operation_page.reload)
         self.operation_page.reload_request.connect(self.product_page.reload)
         self.warehouse_page.data_changed.connect(self.operation_page.reload)
 
-        # --- Верхний тулбар ---
+        # Верхний тулбар
         top_bar = QtWidgets.QWidget()
+        top_bar.setFixedHeight(80)
         hl = QtWidgets.QHBoxLayout(top_bar)
-        # Небольшие отступы, чтобы контент чуть отошёл от краёв
-        hl.setContentsMargins(8, 8, 8, 4)
-        hl.setSpacing(4)
+        hl.setContentsMargins(4, 4, 4, 2)
+        hl.setSpacing(2)
 
-        # Центрированный заголовок
-        lbl_title = QtWidgets.QLabel("ERP-Интерфейс: Учёт продукции")
-        lbl_title.setAlignment(QtCore.Qt.AlignCenter)
+        # Общая информация
+        self.lbl_info = QtWidgets.QLabel()
+        font = self.lbl_info.font()
+        font.setPointSize(10)
+        self.lbl_info.setFont(font)
+        self.lbl_info.setAlignment(QtCore.Qt.AlignCenter)
+        self.update_dashboard_info()
 
-        # Кнопка смены аккаунта (иконка выхода)
+        self.timer = QtCore.QTimer()
+        self.timer.timeout.connect(self.update_dashboard_info)
+        self.timer.start(1000)
+
+        # Кнопки справа
         btn_switch = QtWidgets.QPushButton()
-        btn_switch.setFixedSize(32, 32)
-        btn_switch.setIconSize(QtCore.QSize(20, 20))
+        btn_switch.setFixedSize(35, 35)
+        btn_switch.setIconSize(QtCore.QSize(16, 16))
         btn_switch.clicked.connect(self.on_switch_account)
 
-        # Кнопка переключения темы (иконка солнце/луна)
         btn_theme = QtWidgets.QPushButton()
-        btn_theme.setFixedSize(32, 32)
-        btn_theme.setIconSize(QtCore.QSize(20, 20))
-        btn_theme.clicked.connect(lambda: toggle_theme(btn_theme, lbl_title, btn_switch))
+        btn_theme.setFixedSize(35, 35)
+        btn_theme.setIconSize(QtCore.QSize(16, 16))
+        btn_theme.clicked.connect(lambda: toggle_theme(btn_theme, self.lbl_info, btn_switch))
+        update_theme_ui(btn_theme, self.lbl_info, btn_switch)
 
-        # Инициализируем иконки и стили сразу
-        update_theme_ui(btn_theme, lbl_title, btn_switch)
-
-        # Собираем HBox: отступ, заголовок, отступ, правая группа
         hl.addStretch()
-        hl.addWidget(lbl_title, stretch=1)
+        hl.addWidget(self.lbl_info, stretch=1)
         hl.addStretch()
 
-        # Правая вертикальная группа для кнопок
         right_vbox = QtWidgets.QVBoxLayout()
-        # Небольшие внутренние отступы
         right_vbox.setContentsMargins(0, 0, 0, 0)
-        # Небольшой gap между кнопками
-        right_vbox.setSpacing(4)
-        # Прижимаем кнопки к верхнему краю
+        right_vbox.setSpacing(2)
         right_vbox.addWidget(btn_switch, alignment=QtCore.Qt.AlignRight | QtCore.Qt.AlignTop)
         right_vbox.addWidget(btn_theme,  alignment=QtCore.Qt.AlignRight | QtCore.Qt.AlignTop)
         right_vbox.addStretch()
 
-        # Оборачиваем VBox в виджет, чтобы корректно сработало выравнивание
         right_container = QtWidgets.QWidget()
         right_container.setLayout(right_vbox)
         hl.addWidget(right_container, 0, QtCore.Qt.AlignRight | QtCore.Qt.AlignTop)
 
-        # --- Центральная часть: toolbar + splitter с навигацией и страницами ---
+        # Собираем окно
         central = QtWidgets.QWidget()
         vbox = QtWidgets.QVBoxLayout(central)
         vbox.setContentsMargins(0, 0, 0, 0)
         vbox.setSpacing(0)
         vbox.addWidget(top_bar)
 
-        splitter = QtWidgets.QSplitter(QtCore.Qt.Horizontal)
-        splitter.addWidget(self.nav_list)
-        splitter.addWidget(self.stack)
-        splitter.setStretchFactor(1, 1)
-        vbox.addWidget(splitter)
+        self.splitter = QtWidgets.QSplitter(QtCore.Qt.Horizontal)
+        self.splitter.addWidget(self.nav_list)
+        self.splitter.addWidget(self.stack)
+        self.splitter.setStretchFactor(1, 1)
+        vbox.addWidget(self.splitter)
 
         self.setCentralWidget(central)
-
-        # Устанавливаем первую вкладку
         self.nav_list.setCurrentRow(0)
+
+        # После того, как все размеры будут рассчитаны, подгоняем сплиттер
+        QtCore.QTimer.singleShot(0, self._adjust_splitter)
+
         logger.info("MainWindow initialized for user '%s'", user.username)
 
+    def _adjust_splitter(self):
+        """Устанавливает начальное положение ручки сплиттера."""
+        total_width = self.splitter.size().width()
+        self.splitter.setSizes([self.NAV_WIDTH, total_width - self.NAV_WIDTH])
+
+    def update_dashboard_info(self):
+        current_time = QtCore.QDateTime.currentDateTime().toString("yyyy-MM-dd HH:mm:ss")
+        total_products   = self.product_page.get_total_count()
+        total_operations = self.operation_page.get_total_count()
+        total_suppliers  = self.supplier_page.get_total_count()
+        total_warehouses = self.warehouse_page.get_total_count()
+        info_text = (
+            f"Добро пожаловать: {self.user.username} | "
+            f"Роль: {self.user.role} | "
+            f"Время: {current_time} | "
+            f"Товары: {total_products} | "
+            f"Операции: {total_operations} | "
+            f"Поставщики: {total_suppliers} | "
+            f"Склады: {total_warehouses}"
+        )
+        self.lbl_info.setText(info_text)
+
     def on_nav_changed(self, index: int):
-        """Меняем страницу в стекере при клике в списке."""
-        self.stack.setCurrentIndex(index)
+        self.splitter.widget(1).setCurrentIndex(index)
 
     def on_switch_account(self):
-        """Диалог смены аккаунта."""
         self.hide()
         dlg = self.make_login_dialog()
         if dlg.exec_() == QtWidgets.QDialog.Accepted:

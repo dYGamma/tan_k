@@ -1,86 +1,137 @@
 # services/product_service.py
 import logging
+from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.orm import Session
+from database import SessionLocal
 from models.product import Product
-from services.session_manager import session_scope
 
 logger = logging.getLogger(__name__)
 
 class ProductService:
-
     @staticmethod
-    def list_all(filter_name: str = None):
-        """
-        Возвращает список всех товаров, при необходимости фильтруя по названию.
-        """
-        with session_scope() as s:
-            q = s.query(Product)
+    def list_all(filter_name: str = "") -> list[Product]:
+        session: Session = SessionLocal()
+        try:
+            q = session.query(Product)
             if filter_name:
-                q = q.filter(Product.name.ilike(f"%{filter_name}%"))
-            return q.order_by(Product.name).all()
+                pattern = f"%{filter_name}%"
+                q = q.filter(
+                    Product.name.ilike(pattern) |
+                    Product.manufacturer.ilike(pattern)
+                )
+            return q.order_by(Product.id).all()
+        except SQLAlchemyError as e:
+            logger.error("list_all failed: %s", e, exc_info=True)
+            return []
+        finally:
+            session.close()
 
     @staticmethod
-    def create(name: str, unit: str, exp_days: int, quantity: int = 0):
-        """
-        Создаёт новый товар с начальным количеством quantity.
-        """
-        from utils.data_validator import validate_product
-        if not validate_product(name, unit, exp_days) or quantity < 0:
-            raise ValueError("Invalid product data or negative quantity")
-        with session_scope() as s:
-            p = Product(
+    def create(
+        name: str,
+        device_class: str,
+        category: str,
+        manufacturer: str,
+        serial_number: str,
+        registration_number: str,
+        quantity: int,
+        price: float
+    ) -> Product:
+        session: Session = SessionLocal()
+        try:
+            prod = Product(
                 name=name,
-                unit=unit,
-                expiration_days=exp_days,
-                quantity=quantity
+                device_class=device_class,
+                category=category,
+                manufacturer=manufacturer,
+                serial_number=serial_number,
+                registration_number=registration_number,
+                quantity=quantity,
+                price=price
             )
-            s.add(p)
-            logger.info("Product '%s' created with quantity=%d", name, quantity)
-            return p
+            session.add(prod)
+            session.commit()
+            session.refresh(prod)
+            return prod
+        except SQLAlchemyError as e:
+            session.rollback()
+            logger.error("create failed: %s", e, exc_info=True)
+            raise
+        finally:
+            session.close()
 
     @staticmethod
-    def update(prod_id: int, **kwargs):
-        """
-        Обновляет поля товара. Можно передать name, unit, expiration_days, quantity.
-        """
-        with session_scope() as s:
-            p = s.get(Product, prod_id)
-            if not p:
-                logger.warning("Product id=%d not found for update", prod_id)
-                return None
-            if 'quantity' in kwargs and kwargs['quantity'] < 0:
-                raise ValueError("Quantity cannot be negative")
-            for k, v in kwargs.items():
-                setattr(p, k, v)
-            logger.info("Product id=%d updated: %s", prod_id, kwargs)
-            return p
+    def update(
+        prod_id: int,
+        name: str,
+        device_class: str,
+        category: str,
+        manufacturer: str,
+        serial_number: str,
+        registration_number: str,
+        quantity: int,
+        price: float
+    ) -> Product:
+        session: Session = SessionLocal()
+        try:
+            prod = session.get(Product, prod_id)
+            if not prod:
+                raise ValueError(f"Product with id={prod_id} not found")
+            prod.name                 = name
+            prod.device_class         = device_class
+            prod.category             = category
+            prod.manufacturer         = manufacturer
+            prod.serial_number        = serial_number
+            prod.registration_number  = registration_number
+            prod.quantity             = quantity
+            prod.price                = price
+
+            session.commit()
+            session.refresh(prod)
+            return prod
+        except SQLAlchemyError as e:
+            session.rollback()
+            logger.error("update failed: %s", e, exc_info=True)
+            raise
+        finally:
+            session.close()
 
     @staticmethod
-    def delete(prod_id: int):
-        """
-        Удаляет товар по его ID.
-        """
-        with session_scope() as s:
-            p = s.get(Product, prod_id)
-            if p:
-                s.delete(p)
-                logger.warning("Product id=%d deleted", prod_id)
-                return True
-        logger.warning("Product id=%d not found for deletion", prod_id)
-        return False
+    def delete(prod_id: int) -> None:
+        session: Session = SessionLocal()
+        try:
+            prod = session.get(Product, prod_id)
+            if not prod:
+                raise ValueError(f"Product with id={prod_id} not found")
+            session.delete(prod)
+            session.commit()
+        except SQLAlchemyError as e:
+            session.rollback()
+            logger.error("delete failed: %s", e, exc_info=True)
+            raise
+        finally:
+            session.close()
 
     @staticmethod
-    def adjust_quantity(prod_id: int, delta: int):
+    def adjust_quantity(prod_id: int, delta: int) -> Product:
         """
-        Изменяет количество товара на складе на delta (может быть отрицательным).
+        Изменяет количество изделия на delta (может быть положительным или отрицательным).
+        Возвращает обновлённый объект Product.
         """
-        with session_scope() as s:
-            p = s.get(Product, prod_id)
-            if not p:
-                logger.error("Product id=%d not found for quantity adjustment", prod_id)
-                return None
-            new_qty = p.quantity + delta
-            if new_qty < 0:
-                raise ValueError(f"Insufficient stock for product id={prod_id}")
-            p.quantity = new_qty
-            logger.info("Product id=%d quantity adjusted by %d, new quantity=%d", prod_id, delta, new_qty)
-            return p
+        session: Session = SessionLocal()
+        try:
+            prod = session.get(Product, prod_id)
+            if not prod:
+                raise ValueError(f"Product with id={prod_id} not found")
+            prod.quantity += delta
+            if prod.quantity < 0:
+                raise ValueError("Остаток не может быть отрицательным")
+            session.commit()
+            session.refresh(prod)
+            return prod
+        except SQLAlchemyError as e:
+            session.rollback()
+            logger.error("adjust_quantity failed: %s", e, exc_info=True)
+            raise
+        finally:
+            session.close()

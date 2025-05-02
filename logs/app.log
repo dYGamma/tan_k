@@ -984,3 +984,668 @@ ValueError: Поле 'склад' не может быть пустым
 2025-04-30 22:17:59 gui.login_window     [INFO] User 'admin' logged in via GUI
 2025-04-30 22:17:59 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
 2025-04-30 22:18:46 __main__             [INFO] Application end
+2025-04-30 23:35:10 __main__             [INFO] Application start
+2025-04-30 23:35:25 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 23:35:25 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 23:35:26 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 23:39:37 services.product_service [INFO] Product 'Мука' created with quantity=220
+2025-04-30 23:40:17 services.product_service [INFO] Product 'Крупа' created with quantity=200
+2025-04-30 23:40:35 services.product_service [INFO] Product 'Хлеб' created with quantity=150
+2025-04-30 23:41:22 services.supplier_service [INFO] Supplier 'ООО Залупа' created
+2025-04-30 23:41:35 services.supplier_service [INFO] Supplier 'ООО аААау' created
+2025-04-30 23:42:01 services.warehouse_service [INFO] Warehouse 'Склад' created
+2025-04-30 23:42:06 services.warehouse_service [INFO] Warehouse 'hui' created
+2025-04-30 23:43:33 __main__             [INFO] Application start
+2025-04-30 23:43:40 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 23:43:40 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 23:43:41 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 23:44:19 services.product_service [INFO] Product id=2 quantity adjusted by -20, new quantity=180
+2025-04-30 23:44:19 services.operation_service [INFO] Operation out id=1 created, delta=-20.0
+2025-04-30 23:44:32 services.product_service [INFO] Product id=2 quantity adjusted by 120, new quantity=300
+2025-04-30 23:44:32 services.operation_service [INFO] Operation in id=2 created, delta=120.0
+2025-04-30 23:44:38 gui.report_generator [INFO] PDF report generated: D:\GIT\tan_k\inventory_20250430_234438.pdf
+2025-04-30 23:44:39 gui.report_generator [INFO] Excel report generated: inventory_20250430_234439.xlsx
+2025-04-30 23:48:19 __main__             [INFO] Application end
+2025-04-30 23:52:22 __main__             [INFO] Application start
+2025-04-30 23:52:32 __main__             [INFO] Application start
+2025-04-30 23:52:33 models.user          [INFO] Password set for user 'admin'
+2025-04-30 23:52:33 database             [INFO] Default admin created
+2025-04-30 23:52:39 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 23:52:39 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 23:52:40 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 23:54:18 __main__             [INFO] Application end
+2025-04-30 23:54:23 __main__             [INFO] Application start
+2025-04-30 23:54:29 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 23:54:29 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 23:54:29 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 23:55:14 __main__             [INFO] Application end
+2025-04-30 23:55:24 __main__             [INFO] Application start
+2025-04-30 23:55:29 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 23:55:29 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 23:55:29 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 23:55:56 __main__             [INFO] Application end
+2025-04-30 23:56:46 __main__             [INFO] Application start
+2025-04-30 23:56:50 services.user_service [INFO] User 'admin' authenticated
+2025-04-30 23:56:50 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-04-30 23:56:51 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-04-30 23:57:42 __main__             [INFO] Application end
+2025-05-01 00:00:54 __main__             [INFO] Application start
+2025-05-01 00:01:00 services.user_service [INFO] User 'admin' authenticated
+2025-05-01 00:01:00 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-01 00:03:38 __main__             [INFO] Application start
+2025-05-01 00:03:43 services.user_service [INFO] User 'admin' authenticated
+2025-05-01 00:03:43 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-01 00:04:22 __main__             [INFO] Application start
+2025-05-01 00:04:27 services.user_service [INFO] User 'admin' authenticated
+2025-05-01 00:04:27 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-01 00:05:32 __main__             [INFO] Application start
+2025-05-01 00:05:36 services.user_service [INFO] User 'admin' authenticated
+2025-05-01 00:05:36 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-01 00:05:36 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-01 00:06:07 services.product_service [INFO] Product 'qwer' created with quantity=222
+2025-05-01 00:06:07 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-01 00:06:17 services.product_service [INFO] Product id=1 updated: {'name': 'qwer', 'expiration_days': 6, 'quantity': 222}
+2025-05-01 00:06:18 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-01 00:06:23 __main__             [INFO] Application end
+2025-05-01 00:06:26 __main__             [INFO] Application start
+2025-05-01 00:06:30 services.user_service [INFO] User 'admin' authenticated
+2025-05-01 00:06:30 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-01 00:06:30 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-01 00:07:42 services.product_service [INFO] Product 'qwerqwer' created with quantity=11
+2025-05-01 00:07:43 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-01 00:07:52 __main__             [INFO] Application end
+2025-05-01 00:09:52 __main__             [INFO] Application start
+2025-05-01 00:09:57 services.user_service [INFO] User 'admin' authenticated
+2025-05-01 00:09:57 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-01 00:09:57 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-01 00:10:09 __main__             [INFO] Application end
+2025-05-01 00:10:19 __main__             [INFO] Application start
+2025-05-01 00:10:21 models.user          [INFO] Password set for user 'admin'
+2025-05-01 00:10:21 database             [INFO] Default admin created
+2025-05-01 00:10:25 services.user_service [INFO] User 'admin' authenticated
+2025-05-01 00:10:25 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-01 00:10:25 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-01 00:10:33 gui.product_manager  [ERROR] Не удалось добавить товар: validate_product() missing 1 required positional argument: 'exp'
+Traceback (most recent call last):
+  File "d:\GIT\tan_k\gui\product_manager.py", line 66, in add_item
+    ProductService.create(name, exp_days, quantity=qty)
+  File "d:\GIT\tan_k\services\product_service.py", line 28, in create
+    if not validate_product(name, exp_days) or quantity < 0:
+TypeError: validate_product() missing 1 required positional argument: 'exp'
+2025-05-01 00:10:41 __main__             [INFO] Application end
+2025-05-01 00:11:10 __main__             [INFO] Application start
+2025-05-01 00:11:15 services.user_service [INFO] User 'admin' authenticated
+2025-05-01 00:11:15 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-01 00:11:15 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-01 00:11:32 gui.product_manager  [ERROR] Не удалось добавить товар: create() missing 1 required positional argument: 'exp_days'
+Traceback (most recent call last):
+  File "d:\GIT\tan_k\gui\product_manager.py", line 66, in add_item
+    ProductService.create(name, exp_days, quantity=qty)
+TypeError: create() missing 1 required positional argument: 'exp_days'
+2025-05-01 00:11:34 __main__             [INFO] Application end
+2025-05-01 00:13:16 __main__             [INFO] Application start
+2025-05-01 00:13:21 services.user_service [INFO] User 'admin' authenticated
+2025-05-01 00:13:21 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-01 00:13:22 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-01 00:13:31 services.product_service [INFO] Product 'qwer' created with quantity=111
+2025-05-01 00:13:39 services.product_service [INFO] Product 'qwerqwer' created with quantity=112
+2025-05-01 00:13:46 services.product_service [INFO] Product 'qwerttq' created with quantity=23
+2025-05-01 00:14:59 services.supplier_service [INFO] Supplier 'ооо залупа' created
+2025-05-01 00:15:07 services.supplier_service [INFO] Supplier 'йцукк' created
+2025-05-01 00:15:16 services.warehouse_service [INFO] Warehouse 'йцуу21у' created
+2025-05-01 00:15:19 services.warehouse_service [INFO] Warehouse 'уцуй' created
+2025-05-01 00:16:20 services.product_service [INFO] Product id=1 quantity adjusted by -32, new quantity=79
+2025-05-01 00:16:20 services.operation_service [INFO] Operation out id=1 created, delta=-32.0
+2025-05-01 00:16:49 __main__             [INFO] Application end
+2025-05-02 15:02:49 __main__             [INFO] Application start
+2025-05-02 15:03:01 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 15:03:01 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 15:03:02 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 15:04:16 services.product_service [INFO] Product id=1 quantity adjusted by -9, new quantity=70
+2025-05-02 15:04:16 services.operation_service [INFO] Operation out id=2 created, delta=-9.0
+2025-05-02 15:04:23 gui.report_generator [INFO] PDF report generated: D:\GIT\VuzUC\WORK\uchet\inventory_20250502_150423.pdf
+2025-05-02 15:04:37 gui.report_generator [INFO] Excel report generated: inventory_20250502_150437.xlsx
+2025-05-02 15:12:45 models.user          [INFO] Password set for user 'user'
+2025-05-02 15:12:45 services.user_service [INFO] User 'user' created
+2025-05-02 15:12:46 gui.registration_dialog [INFO] New user 'user' registered via GUI
+2025-05-02 15:12:46 gui.role_manager     [INFO] User 'user' created via GUI
+2025-05-02 15:12:53 __main__             [INFO] Application end
+2025-05-02 15:12:55 __main__             [INFO] Application start
+2025-05-02 15:13:01 models.user          [WARNING] Failed login attempt for 'user'
+2025-05-02 15:13:05 services.user_service [INFO] User 'user' authenticated
+2025-05-02 15:13:05 gui.login_window     [INFO] User 'user' logged in via GUI
+2025-05-02 15:13:06 gui.dashboard_window [INFO] MainWindow initialized for user 'user'
+2025-05-02 15:28:16 __main__             [INFO] Application end
+2025-05-02 15:35:54 __main__             [INFO] Application start
+2025-05-02 15:36:01 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 15:36:01 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 15:36:02 gui.product_manager  [ERROR] Ошибка загрузки списка товаров: (sqlite3.OperationalError) no such column: products.device_class
+[SQL: SELECT products.id AS products_id, products.name AS products_name, products.device_class AS products_device_class, products.category AS products_category, products.manufacturer AS products_manufacturer, products.serial_number AS products_serial_number, products.registration_number AS products_registration_number, products.expiration_days AS products_expiration_days, products.quantity AS products_quantity, products.price AS products_price 
+FROM products ORDER BY products.name]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: products.device_class
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\GIT\VuzUC\WORK\uchet\gui\product_manager.py", line 53, in reload
+    products = ProductService.list_all(filter_name=self.search.text())
+  File "d:\GIT\VuzUC\WORK\uchet\services\product_service.py", line 19, in list_all
+    return q.order_by(Product.name).all()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\query.py", line 2704, in all
+    return self._iter().all()  # type: ignore
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\query.py", line 2858, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: products.device_class
+[SQL: SELECT products.id AS products_id, products.name AS products_name, products.device_class AS products_device_class, products.category AS products_category, products.manufacturer AS products_manufacturer, products.serial_number AS products_serial_number, products.registration_number AS products_registration_number, products.expiration_days AS products_expiration_days, products.quantity AS products_quantity, products.price AS products_price 
+FROM products ORDER BY products.name]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-02 15:36:02 gui.supply_history   [ERROR] Ошибка загрузки операций: (sqlite3.OperationalError) no such column: products_1.device_class
+[SQL: SELECT operations.id AS operations_id, operations.product_id AS operations_product_id, operations.supplier_id AS operations_supplier_id, operations.warehouse AS operations_warehouse, operations.quantity AS operations_quantity, operations.type AS operations_type, operations.date AS operations_date, products_1.id AS products_1_id, products_1.name AS products_1_name, products_1.device_class AS products_1_device_class, products_1.category AS products_1_category, products_1.manufacturer AS products_1_manufacturer, products_1.serial_number AS products_1_serial_number, products_1.registration_number AS products_1_registration_number, products_1.expiration_days AS products_1_expiration_days, products_1.quantity AS products_1_quantity, products_1.price AS products_1_price, suppliers_1.id AS suppliers_1_id, suppliers_1.name AS suppliers_1_name, suppliers_1.contact AS suppliers_1_contact 
+FROM operations LEFT OUTER JOIN products AS products_1 ON products_1.id = operations.product_id LEFT OUTER JOIN suppliers AS suppliers_1 ON suppliers_1.id = operations.supplier_id ORDER BY operations.date DESC]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: products_1.device_class
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\GIT\VuzUC\WORK\uchet\gui\supply_history.py", line 47, in reload
+    ops = OperationService.list_all()
+  File "d:\GIT\VuzUC\WORK\uchet\services\operation_service.py", line 20, in list_all
+    s.query(Operation)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\query.py", line 2704, in all
+    return self._iter().all()  # type: ignore
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\query.py", line 2858, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: products_1.device_class
+[SQL: SELECT operations.id AS operations_id, operations.product_id AS operations_product_id, operations.supplier_id AS operations_supplier_id, operations.warehouse AS operations_warehouse, operations.quantity AS operations_quantity, operations.type AS operations_type, operations.date AS operations_date, products_1.id AS products_1_id, products_1.name AS products_1_name, products_1.device_class AS products_1_device_class, products_1.category AS products_1_category, products_1.manufacturer AS products_1_manufacturer, products_1.serial_number AS products_1_serial_number, products_1.registration_number AS products_1_registration_number, products_1.expiration_days AS products_1_expiration_days, products_1.quantity AS products_1_quantity, products_1.price AS products_1_price, suppliers_1.id AS suppliers_1_id, suppliers_1.name AS suppliers_1_name, suppliers_1.contact AS suppliers_1_contact 
+FROM operations LEFT OUTER JOIN products AS products_1 ON products_1.id = operations.product_id LEFT OUTER JOIN suppliers AS suppliers_1 ON suppliers_1.id = operations.supplier_id ORDER BY operations.date DESC]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-02 15:36:02 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 15:36:11 __main__             [INFO] Application end
+2025-05-02 15:36:25 __main__             [INFO] Application start
+2025-05-02 15:36:27 models.user          [INFO] Password set for user 'admin'
+2025-05-02 15:36:27 database             [INFO] Default admin created
+2025-05-02 15:36:31 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 15:36:31 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 15:36:32 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 15:37:07 models.user          [INFO] Password set for user 'user'
+2025-05-02 15:37:07 services.user_service [INFO] User 'user' created
+2025-05-02 15:37:08 gui.registration_dialog [INFO] New user 'user' registered via GUI
+2025-05-02 15:37:08 gui.role_manager     [INFO] User 'user' created via GUI
+2025-05-02 15:38:18 __main__             [INFO] Application end
+2025-05-02 15:39:11 __main__             [INFO] Application start
+2025-05-02 15:39:16 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 15:39:16 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 15:39:17 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 15:39:23 __main__             [INFO] Application end
+2025-05-02 15:40:34 __main__             [INFO] Application start
+2025-05-02 15:40:43 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 15:40:43 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 15:40:44 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 15:43:45 gui.product_manager  [ERROR] Не удалось добавить товар: create() got an unexpected keyword argument 'device_class'
+Traceback (most recent call last):
+  File "d:\GIT\VuzUC\WORK\uchet\gui\product_manager.py", line 76, in add_item
+    ProductService.create(**data)
+TypeError: create() got an unexpected keyword argument 'device_class'
+2025-05-02 15:52:04 __main__             [INFO] Application end
+2025-05-02 15:52:07 __main__             [INFO] Application start
+2025-05-02 15:52:12 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 15:52:12 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 15:52:12 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 15:52:31 gui.product_manager  [ERROR] Не удалось добавить товар: create() got an unexpected keyword argument 'device_class'
+Traceback (most recent call last):
+  File "d:\GIT\VuzUC\WORK\uchet\gui\product_manager.py", line 76, in add_item
+    ProductService.create(**data)
+TypeError: create() got an unexpected keyword argument 'device_class'
+2025-05-02 15:53:50 __main__             [INFO] Application end
+2025-05-02 15:54:46 __main__             [INFO] Application start
+2025-05-02 15:54:51 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 15:54:51 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 15:54:52 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 15:55:02 services.product_service [ERROR] create failed: (sqlite3.IntegrityError) NOT NULL constraint failed: products.expiration_days
+[SQL: INSERT INTO products (name, device_class, category, manufacturer, serial_number, registration_number, quantity, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('1', '1', '1', '1', '1', '1', 1, 1.0)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: products.expiration_days
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\GIT\VuzUC\WORK\uchet\services\product_service.py", line 53, in create
+    session.commit()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4353, in flush
+    self._flush(objects)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4489, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4449, in _flush
+    flush_context.execute()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: products.expiration_days
+[SQL: INSERT INTO products (name, device_class, category, manufacturer, serial_number, registration_number, quantity, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('1', '1', '1', '1', '1', '1', 1, 1.0)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-05-02 15:55:02 gui.product_manager  [ERROR] Add failed: (sqlite3.IntegrityError) NOT NULL constraint failed: products.expiration_days
+[SQL: INSERT INTO products (name, device_class, category, manufacturer, serial_number, registration_number, quantity, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('1', '1', '1', '1', '1', '1', 1, 1.0)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: products.expiration_days
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\GIT\VuzUC\WORK\uchet\gui\product_manager.py", line 75, in add_item
+    ProductService.create(**data)
+  File "d:\GIT\VuzUC\WORK\uchet\services\product_service.py", line 53, in create
+    session.commit()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4353, in flush
+    self._flush(objects)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4489, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4449, in _flush
+    flush_context.execute()
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 945, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: products.expiration_days
+[SQL: INSERT INTO products (name, device_class, category, manufacturer, serial_number, registration_number, quantity, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('1', '1', '1', '1', '1', '1', 1, 1.0)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-05-02 15:55:24 __main__             [INFO] Application end
+2025-05-02 15:55:48 __main__             [INFO] Application start
+2025-05-02 15:55:51 models.user          [INFO] Password set for user 'admin'
+2025-05-02 15:55:51 database             [INFO] Default admin created
+2025-05-02 15:55:57 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 15:55:57 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 15:55:57 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 15:58:28 services.supplier_service [INFO] Supplier 'Поставщик 1' created
+2025-05-02 15:58:38 services.warehouse_service [INFO] Warehouse 'Склад 1' created
+2025-05-02 15:58:48 models.user          [INFO] Password set for user 'user'
+2025-05-02 15:58:48 services.user_service [INFO] User 'user' created
+2025-05-02 15:58:49 gui.registration_dialog [INFO] New user 'user' registered via GUI
+2025-05-02 15:58:49 gui.role_manager     [INFO] User 'user' created via GUI
+2025-05-02 15:59:24 services.operation_service [ERROR] Не удалось создать операцию: type object 'ProductService' has no attribute 'adjust_quantity'
+Traceback (most recent call last):
+  File "d:\GIT\VuzUC\WORK\uchet\services\operation_service.py", line 57, in create
+    ProductService.adjust_quantity(product_id, delta)
+AttributeError: type object 'ProductService' has no attribute 'adjust_quantity'
+2025-05-02 15:59:24 services.operation_service [ERROR] Не удалось откатить изменение остатка товара после ошибки операции
+Traceback (most recent call last):
+  File "d:\GIT\VuzUC\WORK\uchet\services\operation_service.py", line 57, in create
+    ProductService.adjust_quantity(product_id, delta)
+AttributeError: type object 'ProductService' has no attribute 'adjust_quantity'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\GIT\VuzUC\WORK\uchet\services\operation_service.py", line 76, in create
+    ProductService.adjust_quantity(product_id, -delta)
+AttributeError: type object 'ProductService' has no attribute 'adjust_quantity'
+2025-05-02 15:59:24 gui.supply_history   [ERROR] Не удалось добавить операцию: type object 'ProductService' has no attribute 'adjust_quantity'
+Traceback (most recent call last):
+  File "d:\GIT\VuzUC\WORK\uchet\gui\supply_history.py", line 68, in add_item
+    OperationService.create(
+  File "d:\GIT\VuzUC\WORK\uchet\services\operation_service.py", line 57, in create
+    ProductService.adjust_quantity(product_id, delta)
+AttributeError: type object 'ProductService' has no attribute 'adjust_quantity'
+2025-05-02 16:00:46 __main__             [INFO] Application end
+2025-05-02 16:01:04 __main__             [INFO] Application start
+2025-05-02 16:01:09 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:01:09 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:01:09 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:01:21 services.operation_service [INFO] Operation in id=1 created, delta=1.0
+2025-05-02 16:03:23 __main__             [INFO] Application start
+2025-05-02 16:03:28 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:03:28 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:03:28 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:03:43 services.operation_service [INFO] Operation out id=2 created, delta=-1.0
+2025-05-02 16:03:51 services.operation_service [WARNING] Operation id=1 deleted, rolled back delta=1.0
+2025-05-02 16:03:56 services.operation_service [WARNING] Operation id=2 deleted, rolled back delta=-1.0
+2025-05-02 16:04:03 services.operation_service [INFO] Operation in id=1 created, delta=1.0
+2025-05-02 16:04:10 services.operation_service [INFO] Operation id=1 updated, old_delta=1.0, new_delta=-1.0
+2025-05-02 16:04:14 services.operation_service [WARNING] Operation id=1 deleted, rolled back delta=-1.0
+2025-05-02 16:04:21 gui.report_generator [INFO] PDF report generated: D:\GIT\VuzUC\WORK\uchet\inventory_20250502_160421.pdf
+2025-05-02 16:06:02 services.operation_service [INFO] Operation in id=1 created, delta=1.0
+2025-05-02 16:06:06 gui.report_generator [INFO] PDF report generated: D:\GIT\VuzUC\WORK\uchet\inventory_20250502_160606.pdf
+2025-05-02 16:06:27 gui.report_generator [INFO] Excel report generated: inventory_20250502_160627.xlsx
+2025-05-02 16:06:41 __main__             [INFO] Application end
+2025-05-02 16:07:03 __main__             [INFO] Application start
+2025-05-02 16:07:08 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:07:08 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:07:09 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:07:38 services.operation_service [INFO] Operation in id=2 created, delta=1.0
+2025-05-02 16:07:48 services.operation_service [INFO] Operation out id=3 created, delta=-1.0
+2025-05-02 16:07:56 services.operation_service [INFO] Operation id=3 updated, old_delta=-1.0, new_delta=1.0
+2025-05-02 16:09:23 __main__             [INFO] Application end
+2025-05-02 16:09:55 __main__             [INFO] Application start
+2025-05-02 16:10:01 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:10:01 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:10:02 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:15:10 __main__             [INFO] Application end
+2025-05-02 16:15:14 __main__             [INFO] Application start
+2025-05-02 16:15:19 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:15:19 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:15:19 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:15:31 __main__             [INFO] Application end
+2025-05-02 16:16:30 __main__             [INFO] Application start
+2025-05-02 16:16:34 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:16:34 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:16:35 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:20:32 __main__             [INFO] Application start
+2025-05-02 16:20:37 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:20:37 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:20:37 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:21:11 __main__             [INFO] Application end
+2025-05-02 16:21:14 __main__             [INFO] Application start
+2025-05-02 16:21:18 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:21:18 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:21:18 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:23:07 __main__             [INFO] Application start
+2025-05-02 16:23:12 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:23:12 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:23:12 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:26:18 __main__             [INFO] Application start
+2025-05-02 16:26:25 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:26:25 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:26:26 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:30:26 __main__             [INFO] Application end
+2025-05-02 16:31:00 __main__             [INFO] Application start
+2025-05-02 16:31:05 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:31:05 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:31:05 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:31:29 services.supplier_service [INFO] Supplier '1' created
+2025-05-02 16:31:34 services.supplier_service [WARNING] Supplier id=2 deleted
+2025-05-02 16:34:52 __main__             [INFO] Application end
+2025-05-02 16:34:58 __main__             [INFO] Application start
+2025-05-02 16:35:05 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:35:05 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:35:05 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:35:29 __main__             [INFO] Application end
+2025-05-02 16:35:59 __main__             [INFO] Application start
+2025-05-02 16:36:03 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:36:03 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:36:04 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:36:16 __main__             [INFO] Application end
+2025-05-02 16:36:26 __main__             [INFO] Application start
+2025-05-02 16:36:31 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:36:31 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:36:32 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:36:36 __main__             [INFO] Application end
+2025-05-02 16:37:17 __main__             [INFO] Application start
+2025-05-02 16:37:22 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:37:22 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:37:23 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:37:26 __main__             [INFO] Application end
+2025-05-02 16:39:02 __main__             [INFO] Application start
+2025-05-02 16:39:08 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:39:08 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:39:08 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:42:56 __main__             [INFO] Application start
+2025-05-02 16:43:01 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:43:01 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:43:36 __main__             [INFO] Application start
+2025-05-02 16:43:40 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:43:40 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:44:51 __main__             [INFO] Application start
+2025-05-02 16:50:38 __main__             [INFO] Application start
+2025-05-02 16:50:43 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:50:43 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:50:44 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:52:11 __main__             [INFO] Application end
+2025-05-02 16:52:13 __main__             [INFO] Application start
+2025-05-02 16:52:18 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:52:18 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:52:19 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:52:29 __main__             [INFO] Application end
+2025-05-02 16:52:54 __main__             [INFO] Application start
+2025-05-02 16:52:57 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:52:57 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:52:58 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:53:26 __main__             [INFO] Application end
+2025-05-02 16:53:35 __main__             [INFO] Application start
+2025-05-02 16:53:39 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:53:39 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:53:40 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:53:44 __main__             [INFO] Application end
+2025-05-02 16:53:57 __main__             [INFO] Application start
+2025-05-02 16:54:02 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:54:02 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:54:02 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:54:07 __main__             [INFO] Application end
+2025-05-02 16:54:39 __main__             [INFO] Application start
+2025-05-02 16:54:42 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:54:42 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:54:43 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:54:49 __main__             [INFO] Application end
+2025-05-02 16:55:10 __main__             [INFO] Application start
+2025-05-02 16:55:13 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:55:13 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:55:14 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:55:20 __main__             [INFO] Application end
+2025-05-02 16:55:28 __main__             [INFO] Application start
+2025-05-02 16:55:31 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:55:31 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:55:32 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:55:43 __main__             [INFO] Application end
+2025-05-02 16:56:09 __main__             [INFO] Application start
+2025-05-02 16:56:17 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:56:17 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:56:17 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:56:39 __main__             [INFO] Application end
+2025-05-02 16:57:02 __main__             [INFO] Application start
+2025-05-02 16:57:04 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:57:04 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:57:05 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:57:08 __main__             [INFO] Application end
+2025-05-02 16:57:21 __main__             [INFO] Application start
+2025-05-02 16:57:23 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:57:23 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:57:24 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:57:27 __main__             [INFO] Application end
+2025-05-02 16:57:38 __main__             [INFO] Application start
+2025-05-02 16:57:40 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:57:40 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:57:40 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:57:50 __main__             [INFO] Application end
+2025-05-02 16:58:04 __main__             [INFO] Application start
+2025-05-02 16:58:06 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:58:06 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:58:06 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 16:58:49 __main__             [INFO] Application end
+2025-05-02 16:58:55 __main__             [INFO] Application start
+2025-05-02 16:59:01 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 16:59:01 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 16:59:02 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 17:00:32 __main__             [INFO] Application end
+2025-05-02 17:00:57 __main__             [INFO] Application start
+2025-05-02 17:01:04 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 17:01:04 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 17:01:04 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 17:01:11 __main__             [INFO] Application end
+2025-05-02 17:01:52 __main__             [INFO] Application start
+2025-05-02 17:01:57 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 17:01:57 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 17:01:57 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 17:02:04 __main__             [INFO] Application end
+2025-05-02 17:03:26 __main__             [INFO] Application start
+2025-05-02 17:03:32 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 17:03:32 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 17:03:32 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 17:06:15 __main__             [INFO] Application start
+2025-05-02 17:06:22 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 17:06:22 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 17:06:23 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 17:06:49 gui.report_generator [INFO] PDF report generated: D:\GIT\VuzUC\WORK\uchet\inventory_20250502_170649.pdf
+2025-05-02 17:06:49 gui.report_generator [INFO] Excel report generated: inventory_20250502_170649.xlsx
+2025-05-02 17:12:34 __main__             [INFO] Application end
+2025-05-02 17:13:16 __main__             [INFO] Application start
+2025-05-02 17:13:21 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 17:13:21 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 17:13:22 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 17:13:45 gui.report_generator [ERROR] Error exporting PDF: type object 'OperationService' has no attribute 'list_by_date'
+Traceback (most recent call last):
+  File "d:\GIT\VuzUC\WORK\uchet\gui\report_generator.py", line 81, in on_export_pdf
+    total = export_inventory_pdf(path=fn, date_from=start, date_to=end)
+  File "d:\GIT\VuzUC\WORK\uchet\utils\pdf_exporter.py", line 20, in export_inventory_pdf
+    ops = OperationService.list_by_date(date_from, date_to)
+AttributeError: type object 'OperationService' has no attribute 'list_by_date'
+2025-05-02 17:13:51 __main__             [INFO] Application end
+2025-05-02 17:14:39 __main__             [INFO] Application start
+2025-05-02 17:14:44 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 17:14:44 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 17:14:44 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 17:14:54 gui.report_generator [INFO] PDF report generated: C:/Users/Dmitry/Downloads/3.pdf (3 records)
+2025-05-02 17:15:12 gui.report_generator [INFO] Excel report generated: C:/Users/Dmitry/Downloads/4.xlsx (3 records)
+2025-05-02 17:16:51 __main__             [INFO] Application end
+2025-05-02 17:17:05 __main__             [INFO] Application start
+2025-05-02 17:17:10 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 17:17:10 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 17:17:10 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 17:18:21 __main__             [INFO] Application end
+2025-05-02 17:18:24 __main__             [INFO] Application start
+2025-05-02 17:18:29 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 17:18:29 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 17:18:29 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 17:19:47 __main__             [INFO] Application end
+2025-05-02 17:21:09 __main__             [INFO] Application start
+2025-05-02 17:21:14 services.user_service [INFO] User 'admin' authenticated
+2025-05-02 17:21:14 gui.login_window     [INFO] User 'admin' logged in via GUI
+2025-05-02 17:21:15 gui.dashboard_window [INFO] MainWindow initialized for user 'admin'
+2025-05-02 17:21:33 gui.report_generator [INFO] Excel report generated: C:/Users/Dmitry/Downloads/4.xlsx (3 records)
+2025-05-02 17:27:10 __main__             [INFO] Application end

@@ -2,6 +2,8 @@
 from PyQt5 import QtWidgets, QtCore
 from services.warehouse_service import WarehouseService
 from gui.warehouse_dialog import WarehouseDialog
+from database import SessionLocal
+from models.warehouse import Warehouse
 import logging
 
 logger = logging.getLogger(__name__)
@@ -89,12 +91,18 @@ class WarehouseManagerPage(QtWidgets.QWidget):
         if row < 0:
             return
         wh_id = int(self.table.item(row, 0).text())
-        reply = QtWidgets.QMessageBox.question(
-            self, "Подтвердите удаление", "Удалить склад?",
-            QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No
-        )
-        if reply != QtWidgets.QMessageBox.Yes:
+
+        msg_box = QtWidgets.QMessageBox(self)
+        msg_box.setWindowTitle("Подтвердите удаление")
+        msg_box.setText("Удалить склад?")
+        msg_box.setIcon(QtWidgets.QMessageBox.Question)
+        yes_button = msg_box.addButton("Да", QtWidgets.QMessageBox.YesRole)
+        no_button = msg_box.addButton("Нет", QtWidgets.QMessageBox.NoRole)
+        msg_box.exec()
+
+        if msg_box.clickedButton() != yes_button:
             return
+
         try:
             WarehouseService.delete(wh_id)
             self.reload()
@@ -102,3 +110,11 @@ class WarehouseManagerPage(QtWidgets.QWidget):
         except Exception as e:
             logger.error("Не удалось удалить склад: %s", e, exc_info=True)
             QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
+
+    def get_total_count(self) -> int:
+        """Возвращает общее число складов."""
+        session = SessionLocal()
+        try:
+            return session.query(Warehouse).count()
+        finally:
+            session.close()

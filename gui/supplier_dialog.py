@@ -25,6 +25,8 @@ class SupplierDialog(QtWidgets.QDialog):
         btns = QtWidgets.QDialogButtonBox(
             QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel
         )
+        btns.button(QtWidgets.QDialogButtonBox.Ok).setText("ОК")
+        btns.button(QtWidgets.QDialogButtonBox.Cancel).setText("Отмена")
         btns.accepted.connect(self.validate_and_accept)
         btns.rejected.connect(self.reject)
         layout.addRow(btns)

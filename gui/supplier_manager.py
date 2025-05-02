@@ -4,6 +4,8 @@ from services.supplier_service import SupplierService
 from gui.supplier_dialog import SupplierDialog
 from services.session_manager import session_scope
 from models.supplier import Supplier  # <<< Добавлен импорт
+from database import SessionLocal
+from models.warehouse import Warehouse
 import logging
 
 logger = logging.getLogger(__name__)
@@ -16,6 +18,7 @@ class SupplierRow:
         self.name = supplier.name
         self.contact = supplier.contact or ""
 
+        # заполняем ячейки
         self.table.setItem(row, 0, QtWidgets.QTableWidgetItem(self.name))
         self.table.item(row, 0).setData(QtCore.Qt.UserRole, self.id)
         self.table.setItem(row, 1, QtWidgets.QTableWidgetItem(self.contact))
@@ -29,7 +32,12 @@ class SupplierManagerPage(QtWidgets.QWidget):
         self.table = QtWidgets.QTableWidget()
         self.table.setColumnCount(2)
         self.table.setHorizontalHeaderLabels(["Название", "Контакты"])
-        self.table.horizontalHeader().setStretchLastSection(True)
+
+        # Колонка 0 по ширине по содержимому, колонка 1 — растягиваемая
+        header = self.table.horizontalHeader()
+        header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
+
         layout.addWidget(self.table)
 
         # Кнопки управления
@@ -98,10 +106,23 @@ class SupplierManagerPage(QtWidgets.QWidget):
 
         row = selected[0].row()
         supplier_id = self.table.item(row, 0).data(QtCore.Qt.UserRole)
-        reply = QtWidgets.QMessageBox.question(
-            self, "Удаление", "Вы уверены, что хотите удалить поставщика?",
-            QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No
-        )
-        if reply == QtWidgets.QMessageBox.Yes:
+        # Создаем кастомный MessageBox с кнопками "Да" и "Нет"
+        msg_box = QtWidgets.QMessageBox(self)
+        msg_box.setWindowTitle("Удаление")
+        msg_box.setText("Вы уверены, что хотите удалить поставщика?")
+        msg_box.setIcon(QtWidgets.QMessageBox.Question)
+        # Добавляем кнопки с русскими надписями и соответствующими ролями
+        yes_button = msg_box.addButton("Да", QtWidgets.QMessageBox.YesRole)
+        msg_box.addButton("Нет", QtWidgets.QMessageBox.NoRole)
+        msg_box.exec_()
+
+        if msg_box.clickedButton() == yes_button:
             if SupplierService.delete(supplier_id):
                 self.refresh_table()
+    def get_total_count(self) -> int:
+        """Возвращает общее число поставщиков."""
+        session = SessionLocal()
+        try:
+            return session.query(Supplier).count()
+        finally:
+            session.close()

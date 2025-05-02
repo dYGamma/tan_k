@@ -1,3 +1,4 @@
+# utils/data_validator.py
 import re
 
 def validate_username(username: str) -> bool:
@@ -15,5 +16,10 @@ def validate_positive_number(val) -> bool:
     except:
         return False
 
-def validate_product(name: str, unit: str, exp: int) -> bool:
-    return validate_nonempty(name) and validate_nonempty(unit) and validate_positive_number(exp)
+def validate_product(name: str, exp: int) -> bool:
+    """
+    Проверяет корректность данных товара:
+      - name не должна быть пустой
+      - exp (срок годности в днях) неотрицательное число
+    """
+    return validate_nonempty(name) and validate_positive_number(exp)
